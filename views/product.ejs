@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('parts/header')%>
+    <section class="breadcrumbs <%=(data.filter) ? 'breadcrumbs-filter' : ''%>">
+        <a href="/" class="prev-page">Главная</a>
+        <span class="prev-page-line"></span>
+        <a href="/catalog/<%=data.categorieLink%>" class="prev-page"><%=data.categorie%></a>
+        <span class="prev-page-line"></span>
+        <a href="/" class="current-page"><%=data.productName%></a>
+    </section>
+    <%if(data.calculator){%>
+        <section class="calculator">
+            <div class="wrap-calculator">
+                <span class="calculator-title">Расчитать примерное количество и стоимость шлакоблоков можно в нашем</span>
+                <a href="/calculator">
+                    <span>Калькуляторе для Шлакоблоков</span>
+                    <svg width="22" height="5" viewBox="0 0 22 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 2.5H20" stroke="#1235C4" stroke-linejoin="round"/>
+                        <path d="M22 2.5L18.25 4.66506L18.25 0.334936L22 2.5Z" fill="#1235C4"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    <%}%>
+    <section class="product-preview">
+        <div class="product-photo">
+            <div class="sale">Акция</div>
+            <img src="img/cat-test.png" alt="">
+        </div>
+        <div class="product-info">
+            <div class="product-rating">
+                <span class="rating-count">4,7</span>
+                <div class="star-rating">
+                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                    </svg>
+                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                    </svg>
+                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                    </svg>
+                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="product-name"><%=data.productName%></div>
+            <div class="product-nav">
+                <div class="product-price">
+                    <span class="price">16,90 грн</span>
+                    <span class="price-title">за единицу</span>
+                </div>
+                <div class="product-btns">
+                    <div class="buy-btn">Купить</div>
+                    <div class="about-btn">Подробнее о товаре</div>
+                </div>
+                <div class="call-btn">
+                    <img src="img/phone.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="catalog">
+        <div class="catalog-header">
+            <span>Вас также могут заинтересовать</span>
+        </div>
+        <div class="catalog-preview">
+            
+            <div class="preview-item">
+                <div class="wrap-photo">
+                    <div class="sale">Акция</div>
+                    <img src="img/cat-test.png" alt="">
+                </div>
+                <h3>Шлакоблок стеновой 390*190*188</h3>
+                <div class="price-info">
+                    <span class="item-price">16,90 грн</span>
+                    <div class="item-count">за единицу</div>
+                </div>
+                <div class="item-rating">
+                    <span class="rating-count">4,7</span>
+                    <div class="star-rating">
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                    </div>
+                </div>
+                <a href="">
+                    <span>Подробнее</span>
+                    <svg width="22" height="5" viewBox="0 0 22 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 2.5H20" stroke="#1235C4" stroke-linejoin="round"/>
+                        <path d="M22 2.5L18.25 4.66506L18.25 0.334936L22 2.5Z" fill="#1235C4"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="preview-item">
+                <div class="wrap-photo">
+                    <div class="sale">Акция</div>
+                    <img src="img/cat-test.png" alt="">
+                </div>
+                <h3>Шлакоблок стеновой 390*190*188</h3>
+                <div class="price-info">
+                    <span class="item-price">16,90 грн</span>
+                    <div class="item-count">за единицу</div>
+                </div>
+                <div class="item-rating">
+                    <span class="rating-count">4,7</span>
+                    <div class="star-rating">
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                    </div>
+                </div>
+                <a href="">
+                    <span>Подробнее</span>
+                    <svg width="22" height="5" viewBox="0 0 22 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 2.5H20" stroke="#1235C4" stroke-linejoin="round"/>
+                        <path d="M22 2.5L18.25 4.66506L18.25 0.334936L22 2.5Z" fill="#1235C4"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="preview-item">
+                <div class="wrap-photo">
+                    <div class="sale">Акция</div>
+                    <img src="img/cat-test.png" alt="">
+                </div>
+                <h3>Шлакоблок стеновой 390*190*188</h3>
+                <div class="price-info">
+                    <span class="item-price">16,90 грн</span>
+                    <div class="item-count">за единицу</div>
+                </div>
+                <div class="item-rating">
+                    <span class="rating-count">4,7</span>
+                    <div class="star-rating">
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                    </div>
+                </div>
+                <a href="">
+                    <span>Подробнее</span>
+                    <svg width="22" height="5" viewBox="0 0 22 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 2.5H20" stroke="#1235C4" stroke-linejoin="round"/>
+                        <path d="M22 2.5L18.25 4.66506L18.25 0.334936L22 2.5Z" fill="#1235C4"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="preview-item">
+                <div class="wrap-photo">
+                    <div class="sale">Акция</div>
+                    <img src="img/cat-test.png" alt="">
+                </div>
+                <h3>Шлакоблок стеновой 390*190*188</h3>
+                <div class="price-info">
+                    <span class="item-price">16,90 грн</span>
+                    <div class="item-count">за единицу</div>
+                </div>
+                <div class="item-rating">
+                    <span class="rating-count">4,7</span>
+                    <div class="star-rating">
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                        </svg>
+                    </div>
+                </div>
+                <a href="">
+                    <span>Подробнее</span>
+                    <svg width="22" height="5" viewBox="0 0 22 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 2.5H20" stroke="#1235C4" stroke-linejoin="round"/>
+                        <path d="M22 2.5L18.25 4.66506L18.25 0.334936L22 2.5Z" fill="#1235C4"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="product-data">
+        <div class="product-chars">
+            <div class="product-header">Характеристики</div>
+            <div class="chars">
+                <div class="chars-item">
+                    <div class="chars-name">Тип:</div>
+                    <div class="chars-val">Стеновой</div>
+                </div>
+                <div class="chars-item">
+                    <div class="chars-name">Длина, мм:</div>
+                    <div class="chars-val">390</div>
+                </div>
+                <div class="chars-item">
+                    <div class="chars-name">Ширина, мм:</div>
+                    <div class="chars-val">90</div>
+                </div>
+                <div class="chars-item">
+                    <div class="chars-name">Толщина, мм:</div>
+                    <div class="chars-val">188</div>
+                </div>
+                <div class="chars-item">
+                    <div class="chars-name">Прочность, кг/см2:</div>
+                    <div class="chars-val">М35</div>
+                </div>
+                <div class="chars-item">
+                    <div class="chars-name">Морозостойкость, кол-во циклов:</div>
+                    <div class="chars-val">25</div>
+                </div>
+            </div>
+        </div>
+        <div class="product-description">
+            <div class="product-header">Описание</div>
+            <div class="description">
+                Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. 
+Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего.
+Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. 
+            </div>
+        </div>
+    </section>
+    <section class="comments">
+        <div class="comments-header">Отзывы</div>
+        <img src="img/temp-comments.png" alt="">
+    </section>
+    <%- include('parts/footer')%>
+    <script src="js/modal.js"></script>
+</body>
+</html>

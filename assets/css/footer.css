@@ -1,0 +1,228 @@
+footer {
+  width: 100%;
+  height: 500px;
+  padding: 80px 0px;
+  background-color: #1235C4;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+footer .footer-wrap {
+  width: 1180px;
+  margin: 0 auto;
+  display: flex;
+}
+footer .footer-wrap .footer-item {
+  display: flex;
+  flex-direction: column;
+}
+footer .footer-wrap .footer-item:nth-child(2) {
+  margin-right: 60px;
+}
+footer .footer-wrap .footer-item:nth-child(3) {
+  margin-right: 120px;
+}
+footer .footer-wrap .footer-item:nth-child(3) .footer-header:last-child {
+  margin-bottom: 0px;
+}
+footer .footer-wrap .footer-item:nth-child(4) {
+  margin-right: 55px;
+}
+footer .footer-wrap .footer-item svg {
+  margin-top: -5px;
+  cursor: pointer;
+}
+footer .footer-wrap .footer-item svg path {
+  transition-duration: 0.3s;
+}
+footer .footer-wrap .footer-item svg:hover + div {
+  color: #FFE522;
+}
+footer .footer-wrap .footer-item svg:hover path {
+  fill: #FFE522;
+}
+footer .footer-wrap .footer-item .footer-header {
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: 700;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+}
+footer .footer-wrap .footer-item .footer-header:hover {
+  color: #FFE522;
+}
+footer .footer-wrap .footer-item .footer-link {
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  color: #fff;
+  text-decoration: none;
+  transition-duration: 0.3s;
+}
+footer .footer-wrap .footer-item .footer-link:hover {
+  color: #FFE522;
+}
+footer .footer-wrap .footer-item .footer-link:not(:last-child) {
+  margin-bottom: 20px;
+}
+footer .footer-wrap .logo-item {
+  width: 280px;
+  align-items: center;
+  margin-right: 20px;
+}
+footer .footer-wrap .logo-item .footer-title {
+  font-size: 0.45rem;
+  line-height: 0.9rem;
+  color: #fff;
+  transition-duration: 0.3s;
+}
+footer .footer-wrap .logo-item .footer-chart {
+  font-size: 0.6rem;
+  line-height: 0.9rem;
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+footer .footer-wrap .logo-item .footer-phone {
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  color: #fff;
+  font-weight: 700;
+}
+footer .footer-wrap .logo-item .footer-phone:not(:last-child) {
+  margin-bottom: 20px;
+}
+footer .copyright {
+  width: 100%;
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.call-modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  transition-duration: 0.3s;
+  opacity: 0;
+}
+.call-modal .wrap-modal {
+  transition-duration: 0.3s;
+  width: 580px;
+  height: 675px;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  transform: translateY(-30px);
+  padding: 75px 80px 55px;
+}
+.call-modal .wrap-modal img {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  cursor: pointer;
+}
+.call-modal .wrap-modal .call-header {
+  font-size: 1.5rem;
+  line-height: 2.05rem;
+  font-weight: 700;
+  color: #5E696F;
+  margin-bottom: 20px;
+}
+.call-modal .wrap-modal .call-title {
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  color: #2B2E40;
+  margin-bottom: 50px;
+  font-weight: 700;
+  text-align: center;
+}
+.call-modal .wrap-modal form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}
+.call-modal .wrap-modal form .call-input-wrap {
+  margin-bottom: 37px;
+  width: 100%;
+  position: relative;
+}
+.call-modal .wrap-modal form .call-input-wrap .call-input {
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  border: 1px solid #1235C4;
+  padding: 0px 20px;
+  z-index: 4;
+}
+.call-modal .wrap-modal form .call-input-wrap .placeholder {
+  position: absolute;
+  transition-duration: 0.3s;
+  z-index: 5;
+  height: 60px;
+  top: 0;
+  box-sizing: border-box;
+  padding: 0px 3px;
+  margin-left: 17px;
+  cursor: text;
+  display: flex;
+  align-items: center;
+  color: #C3CEDB;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  transition-duration: 0.3s;
+}
+.call-modal .wrap-modal form .call-input-wrap .active-input {
+  position: absolute;
+  font-size: 0.6rem;
+  line-height: 0.9rem;
+  color: #1235C4;
+  padding: 3px;
+  background-color: #fff;
+  transform: translateY(-9px);
+  height: 18px;
+  width: auto;
+}
+.call-modal .wrap-modal form .submit-btn {
+  width: 100%;
+  height: 50px;
+  background-color: #5E696F;
+  border: none;
+  outline: none;
+  color: #C3CEDB;
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.call-modal .wrap-modal .chart-title {
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  color: #2B2E40;
+}
+
+.modal-active {
+  visibility: visible;
+  opacity: 1;
+}
+.modal-active .wrap-modal {
+  transform: translateY(0px);
+}

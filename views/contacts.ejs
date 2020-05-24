@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/contacts.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('parts/header')%>
+    <section class="breadcrumbs">
+        <a href="/" class="prev-page">Главная</a>
+        <span class="prev-page-line"></span>
+        <a href="/" class="prev-page">О нас</a>
+        <span class="prev-page-line"></span>
+        <a href="" class="current-page">Контакты</a>
+    </section>
+    <section class="content">
+        <h2 class="content-header">Контакты</h2>
+        <div class="content-body">
+            <div class="content-body-top content-body-item">
+                <div class="content-item-header">Группа Компаний “Ореол - 1”</div>
+                <div class="contact-item">
+                    <img src="img/call.svg" alt="">
+                    <div class="contact-item-info">
+                        <span class="contact-info-text">+38 (093) 022-82-48</span>
+                        <span class="contact-info-text">+38 (066)-174-16-01</span>
+                        <span class="contact-info-text">+38 (097)-892-25-90</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <img src="img/email.svg" alt="">
+                    <div class="contact-item-info">
+                        <span class="contact-info-text">zavod_oreol-1@ukr.net</span>
+                    </div>
+                </div>
+            </div>
+            <div class="content-body-bottom content-body-item">
+                <div class="content-item-header">Склад продукции Еврорубероида, Шлакоблока, Мастики</div>
+                <div class="contact-item">
+                    <img src="img/location.svg" alt="">
+                    <div class="contact-item-info">
+                        <span class="contact-info-text">ул.Владимирская 92</span>
+                        <span class="contact-info-text">г. Васильков</span>
+                        <span class="contact-info-text">Киевская область, 08600</span>
+                    </div>
+                </div>
+                <img src="img/map.png" alt="">
+            </div>
+            <div class="content-body-bottom content-body-item">
+                <div class="content-item-header">Склад продукции Еврорубероида, Мастики </div>
+                <div class="contact-item">
+                    <img src="img/location.svg" alt="">
+                    <div class="contact-item-info">
+                        <span class="contact-info-text">Ул.Коноплянская ,18. </span>
+                        <span class="contact-info-text">г. Киев</span>
+                        <span class="contact-info-text">04074</span>
+                    </div>
+                </div>
+                <img src="img/map.png" alt="">
+            </div>
+        </div>
+    </section>
+    <%- include('parts/footer')%>
+    <script src="js/modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('parts/header')%>
+    <section class="breadcrumbs">
+        <a href="/" class="prev-page">Главная</a>
+        <span class="prev-page-line"></span>
+        <a href="" class="current-page">Каталог</a>
+    </section>
+    <section class="no-filters categories">
+        <a href="/catalog/evroruberoid" class="categorie">
+            <span class="name">Еврорубероид</span>
+            <img src="img/rubiroid-catalog.png"lt="">
+        </a>
+        <a href="/catalog/mastika" class="categorie">
+            <span class="name">Мастики, праймеры</span>
+            <img src="img/mastika-catalog.png" alt="">
+        </a>
+        <a href="/catalog/germetik" class="categorie">
+            <span class="name">Герметики</span>
+            <img src="img/germetik-catalog.png" alt="">
+        </a>
+        <a href="/catalog/podkladochnyi-kover" class="categorie">
+            <span class="name">Подкладочный ковер</span>
+            <img src="img/kover-catalog.png" alt="">
+        </a>
+        <a href="/catalog/shlakoblock" class="categorie">
+            <span class="name">Шлакоблок</span>
+            <img src="img/shlakoblock-catalog.png" alt="">
+        </a>
+    </section>
+    <section class="description">
+        <div class="description-header">Строительство из шлакоблока</div>
+        <div class="description-text">Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего, судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, - тогда, дорогой друг, меня часто томит мысль: "Ах! Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога!"</div>
+    </section>
+    <%- include('parts/footer')%>
+    <script src="js/modal.js"></script>
+</body>
+</html>

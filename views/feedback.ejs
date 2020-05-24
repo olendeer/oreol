@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/feedback.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('parts/header')%>
+    <section class="breadcrumbs">
+        <a href="/" class="prev-page">Главная</a>
+        <span class="prev-page-line"></span>
+        <a href="/" class="prev-page">О нас</a>
+        <span class="prev-page-line"></span>
+        <a href="" class="current-page">Отзывы</a>
+    </section>
+    <section class="content">
+        <h2 class="content-header">Отзывы</h2>
+        <div class="content-body">
+            <%for(let i = 0; i < data.countFeedbacks; i ++){%>
+                <div class="feedback-item">
+                    <img src="img/feedback1.png" alt="">
+                    <div class="feedback-item-info">
+                        <div class="info-header">ООО “Нова Лінія”</div>
+                        <div class="info-text">Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. </div>
+                    </div>
+                </div>
+            <%}%>
+        </div>
+        <%if(data.countFeedbacks > 4){%>
+            <div class="feedback-items-navigation">
+                <div class="prev-page nav-btn">
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 5L5 1L1 5" stroke="#1235C4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Предыдущая</span>
+                </div>
+                <div class="pagination">
+                    <%if(data.countPage <= 4){%>
+                        <span class="num-page active-num-page">1</span>
+                        <span class="num-page">2</span>
+                        <span class="num-page">3</span>
+                        <span class="num-page">4</span>
+                    <%}else if(data.numberPage == 1 || data.numberPage == 2 || data.numberPage == data.countPage || data.numberPage == data.countPage - 1){%>
+                        <span class="num-page active-num-page">1</span>
+                        <span class="num-page">2</span>
+                        <span class="num-page dots">...</span>
+                        <span class="num-page"><%= data.countPage - 1%></span>
+                        <span class="num-page"><%= data.countPage%></span>
+                    <%}else{%>
+                        <span class="num-page">1</span>
+                        <span class="num-page dots">...</span>
+                        <span class="num-page"><%= data.numberPage - 1%></span>
+                        <span class="num-page active-num-page"><%= data.numberPage%></span>
+                        <span class="num-page"><%= data.numberPage + 1%></span>
+                        <span class="num-page dots">...</span>
+                        <span class="num-page"><%= data.countPage%></span>
+                    <%}%>
+                </div>
+                <div class="next-page nav-btn">
+                    <span>Следующая</span>
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 5L5 1L1 5" stroke="#1235C4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+        <%}%>
+    </section>
+    <%- include('parts/footer')%>
+    <script src="js/modal.js"></script>
+</body>
+</html>

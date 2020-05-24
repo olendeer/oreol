@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('parts/header')%>
+    <section class="breadcrumbs">
+        <a href="/" class="prev-page">Главная</a>
+        <span class="prev-page-line"></span>
+        <a href="" class="current-page">Калькулятор</a>
+    </section>
+    <section class="content">
+        <h2 class="content-header">Онлайн калькулятор для расчёта количества шлакоблоков</h2>
+        <div class="content-title">С помощью данного калькулятора можно рассчитать общее количество шлакоблоков для постройки дома, гаража, забора и т.п. </div>
+        <div class="content-body">
+            <div class="calculator-data">
+                <div class="calculator-header">Введите данные</div>
+                <div class="input-item">
+                    <div class="input-header">Тип шлакоблока</div>
+                    <div class="selected-item">
+                        <span class="submenu-btn"><span>Шлакоблок стеновой 390*190*188</span>
+                            <div class="menu-list">
+                                <div class="menu-list-item new-submenu-item">Шлакоблок стеновой 390*190*188</div>
+                                <div class="menu-list-item new-submenu-item">Шлакоблок перегородочный 390*90*188</div>
+                            </div>
+                            <img src="img/arrow.svg" alt="">
+                        </span>
+                    </div>
+                </div>
+                <div class="input-item input-item-small">
+                    <div class="input-header">Длина всех стен </div>
+                    <div class="input-title">(периметр, м)</div>
+                    <input type="text">
+                </div>
+                <div class="input-item input-item-small">
+                    <div class="input-header">Выстота стены</div>
+                    <div class="input-title">(м)</div>
+                    <input type="text">
+                </div>
+                <div class="input-item input-item-small">
+                    <div class="input-header">Толщина стены</div>
+                    <span class="submenu-btn"><span>0,19 - (пол блока)</span>
+                        <div class="menu-list">
+                            <div class="menu-list-item new-submenu-item">0,19 - (пол стенового блока)</div>
+                            <div class="menu-list-item new-submenu-item">0,39 - (один стеновой блок)</div>
+                            <div class="menu-list-item new-submenu-item">0,09 - (перегородочный)</div>
+                        </div>
+                        <img src="img/arrow.svg" alt="">
+                    </span>
+                </div>
+                <div class="input-item input-item-small">
+                    <div class="input-header">Тощина шва раствора</div>
+                    <span class="submenu-btn"><span>10</span>
+                        <div class="menu-list">
+                            <div class="menu-list-item new-submenu-item">10</div>
+                            <div class="menu-list-item new-submenu-item">15</div>
+                        </div>
+                        <img src="img/arrow.svg" alt="">
+                    </span>
+                </div>
+                <div class="calculate-btn">Посчитать</div>
+            </div>
+            <div class="calculator-result">
+                <div class="calculator-header">Результат</div>
+                <div class="input-item input-item-small">
+                    <div class="input-header">Количество шлакоблоков</div>
+                    <span></span>
+                </div>
+                <div class="input-item input-item-small">
+                    <div class="input-header">Цена за 256 блоков</div>
+                    <span></span>
+                </div>
+                <div class="order-btn">Заказать</div>
+                <img src="img/shlakobloki-calc.png" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="description">
+        <div class="wrap-description">
+            <div class="description-header"><%=data.page%></div>
+            <div class="description-text"><%=data.description%></div>
+        </div>
+    </section>
+    <%- include('parts/footer')%>
+    <script src="js/modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('parts/header')%>
+    <section class="breadcrumbs">
+        <a href="/" class="prev-page">Главная</a>
+        <span class="prev-page-line"></span>
+        <a href="" class="prev-page">О нас</a>
+        <span class="prev-page-line"></span>
+        <a href="/about/articles" class="prev-page">Статьи</a>
+        <span class="prev-page-line"></span>
+        <a href="/about/articles/article" class="current-page"><%=data.name%></a>
+    </section>
+    <section class="content">
+        <h2 class="content-header"><%=data.name%></h2>
+        <div class="content-body">
+            <img src="img/article1.png" alt="">
+            В Украине набирает большие темпы индивидуальное строительство. Из большого количества строительных материалов многие выбирают шлакоблок. Дом из этого материала возводится в короткие сроки и, главное, стоит небольших денег. Дом из шлакоблока подлежит внутренней и внешней отделке. В данной статье мы расскажем, как утеплить дом из шлакоблока. <br>
+            <br> возведение каркаса; <br>
+            монтаж утеплителя в каркас; <br>
+            защита утеплителя ветро-влагозащитной пленкой; <br>
+            отделка декоративными панелями (сайдингом). <br> <br> 
+            Каркас возводится из деревянного бруса или металлического профиля. Для качественной отделки сайдинг-панелями необходимо позаботиться о том, чтобы выровнять каркасом стены. В каркас устанавливаются жесткие плиты утеплителя из базальтовой минеральной ваты. Подойдут материалы с плотностью 40 - 50 кг / м³. Утеплители с меньшей плотностью могут со временем давать усадку в вертикальных конструкциях, поэтому их использование менее предпочтительно. Также мы настоятельно рекомендуем отказаться от использования пенопласта, если только Вы не строите дом своему врагу. Стоимость теплоизоляции составляет очень
+            незначительную часть общей стоимости строительства дома. Сэкономить на ней поэтому можно будет совсем немного. Пенопласт очень недолговечен, подвержен разрушению, к тому же выделяет вредные вещества. <br>    
+            Далее строительным степлером и скотчем крепится пленка, которая защищает утеплитель от уличной влаги. Завершительным этапом строительства будет монтаж самой облицовки. Такой метод отделки шлакоблочного дома довольно прост и недорог, поэтому весьма распространен. <br>
+            Выбор утеплителя зависит от выбора устройства всей конструкции. Сразу заметим: если Вы хотите, чтобы дом был "дышащим", то используйте базальтовую вату. Такие материалы пропускают пар, делая микроклимат в доме более приятным.
+        </div>
+    </section>
+    <div class="articles-items-navigation">
+        <div class="prev-page nav-btn">
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 5L5 1L1 5" stroke="#1235C4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Предыдущая</span>
+        </div>
+        <div class="next-page nav-btn">
+            <span>Следующая</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 5L5 1L1 5" stroke="#1235C4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </div>
+    <%- include('parts/footer')%>
+    <script src="js/modal.js"></script>
+    <script src="js/faq.js"></script>
+</body>
+</html>

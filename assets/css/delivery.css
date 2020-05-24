@@ -1,0 +1,101 @@
+.breadcrumbs {
+  width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.breadcrumbs a {
+  font-size: 0.6rem;
+  line-height: 0.9rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+.breadcrumbs .prev-page {
+  color: #1235C4;
+}
+.breadcrumbs .prev-page-line {
+  width: 25px;
+  height: 1px;
+  background-color: #1235C4;
+  margin: 0px 5px;
+}
+.breadcrumbs .current-page {
+  color: #5E696F;
+}
+
+.content {
+  width: 1180px;
+  margin: 0 auto;
+  margin-top: 80px;
+  box-sizing: border-box;
+}
+.content .content-header {
+  color: #5E696F;
+  font-size: 1.5rem;
+  line-height: 2.05rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.content .content-title {
+  color: #5E696F;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  margin-bottom: 40px;
+  width: 900px;
+}
+.content .content-title-bold {
+  font-weight: 700;
+}
+.content .content-body {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.content .content-body .delivery-item {
+  width: 580px;
+  height: 250px;
+  background-color: #F1F1F1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.content .content-body .delivery-item:first-child {
+  margin-bottom: 20px;
+}
+.content .content-body .delivery-item:last-child, .content .content-body .delivery-item:nth-child(5) {
+  margin-top: 20px;
+}
+.content .content-body .delivery-item img {
+  mix-blend-mode: multiply;
+  margin-right: 20px;
+}
+.content .content-body .delivery-item .delivery-info {
+  display: flex;
+  flex-direction: column;
+  width: 279px;
+}
+.content .content-body .delivery-item .delivery-info .delivery-name {
+  color: #5E696F;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.content .content-body .delivery-item .delivery-info .delivery-chars {
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  color: #2B2E40;
+  margin-bottom: 20px;
+}
+.content .content-body .delivery-item .delivery-info .delivery-price {
+  color: #1235C4;
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 100px;
+}

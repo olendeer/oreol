@@ -1,0 +1,103 @@
+.breadcrumbs {
+  width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.breadcrumbs a {
+  font-size: 0.6rem;
+  line-height: 0.9rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+.breadcrumbs .prev-page {
+  color: #1235C4;
+}
+.breadcrumbs .prev-page-line {
+  width: 25px;
+  height: 1px;
+  background-color: #1235C4;
+  margin: 0px 5px;
+}
+.breadcrumbs .current-page {
+  color: #5E696F;
+}
+
+.content {
+  width: 1180px;
+  margin: 0 auto;
+  margin-top: 80px;
+  box-sizing: border-box;
+  padding: 0px 100px;
+}
+.content .content-header {
+  color: #5E696F;
+  font-size: 1.5rem;
+  line-height: 2.05rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.content .content-body {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 90px;
+}
+.content .content-body .content-body-top {
+  height: 240px;
+  background-color: rgba(20, 175, 242, 0.1);
+  margin-bottom: 20px;
+}
+.content .content-body .content-body-top .contact-item:last-child {
+  margin-left: 190px;
+}
+.content .content-body .content-body-bottom {
+  width: 480px;
+  height: 620px;
+  background-color: #F1F1F1;
+}
+.content .content-body .content-body-bottom .content-item-header {
+  height: 110px;
+}
+.content .content-body .content-body-item {
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+.content .content-body .content-body-item:last-child {
+  margin-left: 20px;
+}
+.content .content-body .content-body-item .content-item-header {
+  width: 100%;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  color: #5E696F;
+  font-weight: 700;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+.content .content-body .content-body-item .contact-item {
+  display: flex;
+  align-items: flex-start;
+}
+.content .content-body .content-body-item .contact-item img {
+  margin-right: 40px;
+  margin-top: 6px;
+  transform: none;
+}
+.content .content-body .content-body-item .contact-item .contact-item-info {
+  display: flex;
+  flex-direction: column;
+}
+.content .content-body .content-body-item .contact-item .contact-item-info .contact-info-text {
+  font-size: 0.8rem;
+  line-height: 1.4rem;
+  color: #2B2E40;
+  font-weight: 700;
+}
+.content .content-body .content-body-item img {
+  transform: translateX(-40px) translateY(40px);
+}

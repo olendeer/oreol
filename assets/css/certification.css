@@ -1,0 +1,132 @@
+.breadcrumbs {
+  width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.breadcrumbs a {
+  font-size: 0.6rem;
+  line-height: 0.9rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+.breadcrumbs .prev-page {
+  color: #1235C4;
+}
+.breadcrumbs .prev-page-line {
+  width: 25px;
+  height: 1px;
+  background-color: #1235C4;
+  margin: 0px 5px;
+}
+.breadcrumbs .current-page {
+  color: #5E696F;
+}
+
+.content {
+  width: 1180px;
+  margin: 0 auto;
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+.content .content-header {
+  color: #5E696F;
+  font-size: 1.5rem;
+  line-height: 2.05rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.content .content-title {
+  color: #2B2E40;
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  margin-bottom: 30px;
+}
+.content .content-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.certificate-item {
+  width: 580px;
+  height: 250px;
+  background-color: #F1F1F1;
+  display: flex;
+}
+.certificate-item img {
+  margin-right: 25px;
+}
+.certificate-item .certificate-info {
+  box-sizing: border-box;
+  padding: 40px 0px;
+}
+.certificate-item .certificate-info .certificate-text {
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  font-weight: 700;
+  color: #2B2E40;
+  margin-bottom: 30px;
+}
+.certificate-item .certificate-btn {
+  width: 122px;
+  height: 50px;
+  border: 1px solid #14AFF2;
+  box-sizing: border-box;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.certificate-item .certificate-btn span {
+  color: #14AFF2;
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  font-weight: 500;
+  margin-left: 10px;
+  transition-duration: 0.3s;
+}
+.certificate-item .certificate-btn svg path {
+  transition-duration: 0.3s;
+}
+.certificate-item .certificate-btn:hover {
+  border: 1px solid #163391;
+}
+.certificate-item .certificate-btn:hover span {
+  color: #163391;
+}
+.certificate-item .certificate-btn:hover svg path {
+  fill: #163391;
+}
+.certificate-item:first-child {
+  margin-bottom: 40px;
+}
+
+.description {
+  width: 100%;
+  height: 365px;
+  padding: 40px 0px 100px;
+  box-sizing: border-box;
+  background-color: #f1f1f1;
+  position: relative;
+}
+.description .wrap-description {
+  width: 1180px;
+  margin: 0 auto;
+}
+.description .wrap-description .description-header {
+  color: #5E696F;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.description .wrap-description .description-text {
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  color: #2B2E40;
+  font-weight: 300;
+}
