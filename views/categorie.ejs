@@ -12,20 +12,6 @@
 </head>
 <body>
     <%- include('parts/header')%>
-    <!-- <%if(data.calculator){%>
-        <section class="calculator">
-            <div class="wrap-calculator <%=(data.calculatorData.last) ? 'calculator-blue' : ''%>">
-                <span class="calculator-title"><%=data.calculatorData.title%></span>
-                <a href="<%=data.calculatorData.link%>">
-                    <span><%=data.calculatorData.button%></span>
-                    <svg width="22" height="5" viewBox="0 0 22 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 2.5H20" stroke="#1235C4" stroke-linejoin="round"/>
-                        <path d="M22 2.5L18.25 4.66506L18.25 0.334936L22 2.5Z" fill="#1235C4"/>
-                    </svg>
-                </a>
-            </div>
-        </section>
-    <%}%> -->
     <section class="products">
         <div class="<%=(data.filter) ? 'filter' : 'no-filter'%>">
             <div class="filter-title">Сортировка:</div>
@@ -56,6 +42,20 @@
                 <span class="prev-page-line"></span>
                 <a href="" class="current-page"><%=data.page%></a>
             </section>
+            <%if(data.calculator){%>
+                <section class="calculator">
+                    <div class="wrap-calculator">
+                        <span class="calculator-title">Расчитать примерное количество и стоимость шлакоблоков можно в нашем</span>
+                        <a href="/calculator">
+                            <span>Калькуляторе для Шлакоблоков</span>
+                            <svg width="22" height="5" viewBox="0 0 22 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 2.5H20" stroke="#1235C4" stroke-linejoin="round"/>
+                                <path d="M22 2.5L18.25 4.66506L18.25 0.334936L22 2.5Z" fill="#1235C4"/>
+                            </svg>
+                        </a>
+                    </div>
+                </section>
+            <%}%>
             <div class="filter-items">
                 <%for(let i = 0; i < 12; i ++){%>
                     <div class="preview-item">

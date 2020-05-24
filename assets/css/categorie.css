@@ -28,7 +28,8 @@
   box-sizing: border-box;
   padding-right: 300px;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 .calculator .wrap-calculator {
   width: 100%;

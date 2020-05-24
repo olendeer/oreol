@@ -45,6 +45,12 @@ document.querySelectorAll('.call-input').forEach(element => {
         if(this.value.length == 0){
             this.nextElementSibling.classList.remove('active-input');
         }
+        else{
+            switch(this.getAttribute('name')){
+                
+            }
+        }
+
     })
     element.addEventListener('focusin', function(){
         this.nextElementSibling.classList.add('active-input')
