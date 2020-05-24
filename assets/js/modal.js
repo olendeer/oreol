@@ -42,7 +42,9 @@ document.querySelectorAll('.placeholder').forEach(element => {
 })
 document.querySelectorAll('.call-input').forEach(element => {
     element.addEventListener('blur', function(){
-        this.nextElementSibling.classList.remove('active-input');
+        if(this.value.length == 0){
+            this.nextElementSibling.classList.remove('active-input');
+        }
     })
     element.addEventListener('focusin', function(){
         this.nextElementSibling.classList.add('active-input')

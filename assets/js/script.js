@@ -1,11 +1,11 @@
 let anchor = document.querySelector('.description').getBoundingClientRect().top + pageYOffset;
 let filter = document.querySelector('.filter');
 if(filter != null){
-    filter.style.height = (+anchor - 160) + 'px';
+    filter.style.minHeight = (+anchor - 160) + 'px';
 }
 document.querySelector('body').addEventListener('resize', function(){
     let anchor = document.querySelector('.description').getBoundingClientRect().top + pageYOffset;
-    document.querySelector('.filter').style.height = (+anchor - 160) + 'px'
+    document.querySelector('.filter').style.minHeight = (+anchor - 160) + 'px'
 })
 
 

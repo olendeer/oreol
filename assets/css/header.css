@@ -3,6 +3,7 @@ html {
   font-family: "Manrope", sans-serif;
   width: 100vw;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -12,6 +13,7 @@ body {
 
 header {
   width: 1180px;
+  min-width: 1180px;
   height: 60px;
   margin: 0 auto;
   display: flex;
@@ -22,6 +24,7 @@ header h1 {
   font-size: 0.6rem;
   line-height: 0.9rem;
   font-weight: 700;
+  color: #5E696F;
 }
 header .search {
   display: flex;
@@ -32,12 +35,14 @@ header .search {
 }
 header .search svg circle, header .search svg path {
   transition-duration: 0.3s;
+  stroke: #5E696F;
 }
 header .search span {
   color: #C3CEDB;
   font-size: 0.6rem;
   line-height: 0.9rem;
   font-weight: 700;
+  color: #5E696F;
   margin-left: 10px;
   transition-duration: 0.3s;
 }
@@ -58,8 +63,8 @@ header .langs span {
   font-size: 0.6rem;
   line-height: 0.9rem;
   font-weight: 700;
+  color: #5E696F;
   text-transform: uppercase;
-  margin-right: 8px;
   transition-duration: 0.3s;
 }
 header .langs span span {
@@ -67,6 +72,9 @@ header .langs span span {
 }
 header .langs span:hover {
   color: #163391;
+}
+header .langs span img {
+  margin-left: 8px;
 }
 header .phones {
   display: flex;
@@ -91,6 +99,7 @@ header .chart {
   font-size: 0.6rem;
   line-height: 0.9rem;
   font-weight: 700;
+  color: #5E696F;
   font-weight: 400;
 }
 
@@ -107,8 +116,9 @@ nav .nav-wrap {
   display: flex;
   align-items: center;
 }
-nav .nav-wrap img {
+nav .nav-wrap .logo {
   margin-right: 40px;
+  display: flex;
 }
 nav .nav-wrap .navigation {
   display: flex;

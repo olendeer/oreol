@@ -29,19 +29,6 @@ footer .footer-wrap .footer-item:nth-child(3) .footer-header:last-child {
 footer .footer-wrap .footer-item:nth-child(4) {
   margin-right: 55px;
 }
-footer .footer-wrap .footer-item svg {
-  margin-top: -5px;
-  cursor: pointer;
-}
-footer .footer-wrap .footer-item svg path {
-  transition-duration: 0.3s;
-}
-footer .footer-wrap .footer-item svg:hover + div {
-  color: #FFE522;
-}
-footer .footer-wrap .footer-item svg:hover path {
-  fill: #FFE522;
-}
 footer .footer-wrap .footer-item .footer-header {
   font-size: 0.8rem;
   line-height: 1.2rem;
@@ -72,6 +59,26 @@ footer .footer-wrap .logo-item {
   width: 280px;
   align-items: center;
   margin-right: 20px;
+}
+footer .footer-wrap .logo-item a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+footer .footer-wrap .logo-item a svg {
+  margin-top: -5px;
+}
+footer .footer-wrap .logo-item a svg path {
+  transition-duration: 0.3s;
+}
+footer .footer-wrap .logo-item a:hover svg {
+  cursor: pointer;
+}
+footer .footer-wrap .logo-item a:hover svg path {
+  fill: #FFE522;
+}
+footer .footer-wrap .logo-item a:hover .footer-title {
+  color: #FFE522;
 }
 footer .footer-wrap .logo-item .footer-title {
   font-size: 0.45rem;
@@ -172,6 +179,7 @@ footer .copyright {
   border: 1px solid #1235C4;
   padding: 0px 20px;
   z-index: 4;
+  outline: none;
 }
 .call-modal .wrap-modal form .call-input-wrap .placeholder {
   position: absolute;

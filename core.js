@@ -211,6 +211,18 @@ app.get('/:categorie/product', (request, response) => {
 	};
 	data.calculator = true;
 	switch(request.params.categorie){
+		case 'evroruberoid':
+			data.categorie = 'Еврорубероид'
+			break;
+		case 'mastika':
+			data.categorie = 'Мастики, праймеры'
+			break;
+		case 'germetik':
+			data.categorie = 'Герметики'
+			break;
+		case 'podkladochnyi-kover':
+			data.categorie = 'Подкладочный ковер'
+			break;
 		case 'shlakoblock':
 			data.categorie = 'Шлакоблок'
 			break;
