@@ -172,7 +172,9 @@ app.get('/about/:info', (request, response) => {
 		}
 		response.render(request.params.info, {data: data})
 	}
-	response.render(request.params.info)
+	else{
+		response.render(request.params.info)
+	}
 })
 app.get('/faq', (request, response) => {
 	response.render('faq')

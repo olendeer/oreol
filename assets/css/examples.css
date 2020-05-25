@@ -73,6 +73,7 @@
 .content .content-body .example-item img {
   width: 380px;
   height: 228px;
+  min-width: 380px;
 }
 .content .content-body .example-item .feedback-item-info {
   margin-left: 60px;
