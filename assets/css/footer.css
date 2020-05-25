@@ -166,11 +166,30 @@ footer .copyright {
   width: 100%;
   position: relative;
   margin-bottom: 20px;
+  transition-duration: 0.3s;
+  max-height: 341px;
 }
 .call-modal .wrap-modal form .call-input-wrap {
   margin-bottom: 37px;
   width: 100%;
   position: relative;
+}
+.call-modal .wrap-modal form .call-input-wrap .error-img {
+  position: absolute;
+  right: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 0.2s;
+}
+.call-modal .wrap-modal form .call-input-wrap .error-message {
+  position: absolute;
+  font-size: 0.6rem;
+  line-height: 0.8rem;
+  color: #CB4E4A;
+  opacity: 0;
+  bottom: -18px;
+  left: 20px;
+  transition-duration: 0.2s;
 }
 .call-modal .wrap-modal form .call-input-wrap .call-input {
   width: 100%;
@@ -209,6 +228,19 @@ footer .copyright {
   height: 18px;
   width: auto;
 }
+.call-modal .wrap-modal form .error-input .placeholder {
+  color: #CB4E4A;
+}
+.call-modal .wrap-modal form .error-input .call-input {
+  border: 1px solid #CB4E4A;
+}
+.call-modal .wrap-modal form .error-input .error-img {
+  opacity: 1;
+  visibility: visible;
+}
+.call-modal .wrap-modal form .error-input .error-message {
+  opacity: 1;
+}
 .call-modal .wrap-modal form .submit-btn {
   width: 100%;
   height: 50px;
@@ -220,11 +252,27 @@ footer .copyright {
   line-height: 1.05rem;
   font-weight: 500;
   cursor: pointer;
+  transition-duration: 0.3s;
+}
+.call-modal .wrap-modal form .active-submit-btn {
+  background-color: #14AFF2;
+  color: #ffffff;
 }
 .call-modal .wrap-modal .chart-title {
   font-size: 0.7rem;
   line-height: 1.05rem;
   color: #2B2E40;
+}
+.call-modal .sending-modal {
+  justify-content: center;
+}
+.call-modal .sending-modal form {
+  opacity: 0;
+  max-height: 0px;
+  overflow: hidden;
+}
+.call-modal .sending-modal span {
+  display: none;
 }
 
 .modal-active {

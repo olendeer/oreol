@@ -17,6 +17,11 @@ document.querySelectorAll('.new-submenu-item').forEach(element => {
 })
 document.querySelector('.close-modal').addEventListener('click', function(){
     this.parentElement.parentElement.classList.remove('modal-active')
+    this.parentElement.classList.remove('sending-modal')
+    document.querySelectorAll('.call-input').forEach(element => {
+        element.value = '';
+        element.nextElementSibling.classList.remove('active-input');
+    })
 })
 
 document.querySelectorAll('.call, .certificate-btn').forEach(element => {
@@ -40,19 +45,71 @@ document.querySelectorAll('.placeholder').forEach(element => {
         this.previousElementSibling.focus();
     })
 })
+let send = false;
 document.querySelectorAll('.call-input').forEach(element => {
     element.addEventListener('blur', function(){
         if(this.value.length == 0){
             this.nextElementSibling.classList.remove('active-input');
         }
-        else{
-            switch(this.getAttribute('name')){
-                
-            }
+    })
+    element.addEventListener('input', function(){
+        switch(this.getAttribute('name')){
+            case 'name':
+                if(/[^А-я ]+/.test(this.value)){
+                    this.parentElement.classList.add('error-input')
+                    send = false;
+                }
+                else{
+                    if(document.querySelector('input[name="phone"]').value.length > 0 && !document.querySelector('input[name="phone"]').parentElement.classList.contains('error-input')){
+                        send = true;
+                    }
+                    this.parentElement.classList.remove('error-input')
+                }
+                break;
+            case 'phone':
+                if(/[^\d \(\)\-\+]+/.test(this.value)){
+                    this.parentElement.classList.add('error-input');
+                    send = false;
+                }
+                else{
+                    if(document.querySelector('input[name="name"]').value.length > 0 && !document.querySelector('input[name="name"]').parentElement.classList.contains('error-input')){
+                        send = true;
+                    }
+                    this.parentElement.classList.remove('error-input')
+                }
+                break;
+            case 'email':
+                if(!/@+/.test(this.value)){
+                    this.parentElement.classList.add('error-input')
+                    send = false;
+                    if(this.value.length == 0){
+                        this.parentElement.classList.remove('error-input');
+                    }
+                }
+                else{
+                    send = true;
+                    this.parentElement.classList.remove('error-input')
+                }
+                break;
         }
-
+        if(send){
+            document.querySelector('input[type="submit"]').classList.add('active-submit-btn')
+        }
+        else{
+            document.querySelector('input[type="submit"]').classList.remove('active-submit-btn')
+        }
     })
     element.addEventListener('focusin', function(){
         this.nextElementSibling.classList.add('active-input')
     })
+})
+
+document.querySelector('input[type="submit"]').addEventListener('click', function(event){
+    event.preventDefault();
+    if(send){
+        this.parentElement.parentElement.classList.add('sending-modal')
+        document.querySelector('.call-header').textContent = 'Спасибо';
+        document.querySelector('.call-title').innerHTML = 'Данные отправлены';
+        //fetch для отправки email
+    }
 })

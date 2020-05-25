@@ -61,6 +61,10 @@
 .content .content-body .content-body-bottom .content-item-header {
   height: 110px;
 }
+.content .content-body .content-body-bottom > img {
+  width: 480px;
+  height: 302px;
+}
 .content .content-body .content-body-item {
   padding: 40px;
   box-sizing: border-box;

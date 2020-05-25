@@ -70,6 +70,10 @@
   height: 60px;
   background-color: #5E696F;
 }
+.content .content-body .article-item img {
+  width: 340px;
+  height: 249px;
+}
 .content .content-body .article-item .feedback-item-info {
   margin-left: 20px;
   margin-top: 40px;
