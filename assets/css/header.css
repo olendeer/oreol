@@ -337,7 +337,7 @@ nav .nav-wrap .navigation .mobile-nav-close {
     transition-duration: 0.3s;
     flex-wrap: wrap;
     top: 0px;
-    z-index: 5;
+    z-index: 6;
     background-color: #fff;
     left: -266px;
     padding-left: 8px;

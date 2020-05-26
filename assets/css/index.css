@@ -17,7 +17,7 @@
   height: 1500px;
 }
 .main-slider .slider-roller .slide {
-  width: 100%;
+  width: 1180px;
   height: 375px;
   box-sizing: border-box;
   padding-left: 90px;
@@ -26,6 +26,7 @@
 }
 .main-slider .slider-roller .slide img {
   margin-right: 10px;
+  width: 400px;
 }
 .main-slider .slider-roller .slide .slide-info {
   display: flex;
@@ -65,6 +66,9 @@
   font-size: 0.7rem;
   line-height: 1.05rem;
   margin-right: 7px;
+}
+.main-slider .slider-roller .slide .slide-info a img {
+  width: auto;
 }
 .main-slider .slider-nav {
   top: 135px;
@@ -131,18 +135,8 @@
   margin-bottom: 100px;
   position: relative;
 }
-.description:after {
-  position: absolute;
-  top: 0;
-  right: -500px;
-  z-index: -1;
-  content: "";
-  height: 288px;
-  width: 500px;
-  background-color: #f1f1f1;
-}
 .description .description-info {
-  min-width: 630px;
+  min-width: 540px;
   font-size: 0.7rem;
   line-height: 1.05rem;
   font-weight: 500;
@@ -171,10 +165,10 @@
   fill: #163391;
 }
 .description img {
-  width: 788px;
-  height: 373px;
-  margin-top: -82px;
-  transform: translateX(-90px);
+  width: 710px;
+  height: 306px;
+  margin-top: -52px;
+  transform: translateX(19px);
 }
 
 .catalog {
@@ -389,8 +383,15 @@
 @media screen and (max-width: 600px) {
   .main-slider {
     margin-top: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
     height: 223px;
-    width: 100%;
+    width: 93%;
+    overflow: visible;
+    background-color: #fff;
+  }
+  .main-slider .owl-carousel .owl-stage-outer {
+    overflow: visible;
   }
   .main-slider .slider-roller {
     height: auto;
@@ -401,14 +402,15 @@
     height: 223px;
     width: 100%;
     position: relative;
+    overflow: hidden;
+    background-color: #D9E0EB;
   }
   .main-slider .slider-roller .slide img {
     order: 2;
     position: absolute;
     right: 0px;
-    top: 84px;
+    top: 104px;
     width: 155px;
-    height: 155px;
     margin-right: 0px;
   }
   .main-slider .slider-roller .slide .slide-info {
@@ -488,7 +490,7 @@
     width: 436px;
     height: 206px;
     margin-top: 0px;
-    transform: translateX(-30px);
+    transform: translateX(0px);
   }
 
   .catalog {

@@ -100,3 +100,61 @@
   color: #2B2E40;
   font-weight: 300;
 }
+
+@media screen and (max-width: 600px) {
+  .breadcrumbs {
+    display: none;
+  }
+
+  .categories {
+    width: 100%;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 0px 8px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+  }
+  .categories .categorie {
+    width: 49.2%;
+    height: 148px;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+  }
+  .categories .categorie:not(:last-child) {
+    margin-bottom: 8px;
+  }
+  .categories .categorie:first-child img {
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  .categories .categorie img {
+    height: 100px;
+    margin-top: 0px;
+  }
+  .categories .categorie .name {
+    position: static;
+    margin-bottom: 20px;
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+  }
+
+  .description {
+    background-color: #fff;
+    padding: 0px 8px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 40px;
+    height: auto;
+  }
+  .description .description-header {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    margin-bottom: 20px;
+  }
+  .description .description-text {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+  }
+}

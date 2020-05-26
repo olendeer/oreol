@@ -8,13 +8,24 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="js/owl-slider/css/owl.carousel.css">
+    <link rel="stylesheet" href="js/owl-slider/css/owl.theme.default.css">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <%- include('parts/header')%>
     <div class="after-nav"></div>
     <section class="main-slider">
-        <div class="slider-roller">
+        <div class="slider-roller owl-carousel">
+            <div class="slide">
+                <img src="img/slide1.png" alt="">
+                <div class="slide-info">
+                    <h3><strong>Мастика битумно-каучуковая</strong><br>
+                        клеящая «Фикс» 25 кг</h3>
+                    <span class="price">Цена: 850 грн / 1 шт</span>
+                    <a href="/mastika/product"><span>Подробнее</span><img src="img/arrowright.png" alt=""></a>
+                </div>
+            </div>
             <div class="slide">
                 <img src="img/slide1.png" alt="">
                 <div class="slide-info">
@@ -195,5 +206,8 @@
     </section>
     <%- include('parts/footer')%>
     <script src="js/modal.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/owl-slider/js/owl.carousel.js"></script>
+    <script src="js/slider.js"></script>
 </body>
 </html>
