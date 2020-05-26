@@ -113,3 +113,14 @@ document.querySelector('input[type="submit"]').addEventListener('click', functio
         //fetch для отправки email
     }
 })
+
+document.querySelector('.footer-btn-menu').addEventListener('touchend', function(){
+    document.querySelector('footer').classList.toggle('none-active-footer')
+});
+
+document.querySelector('.mobile-btn-menu').addEventListener('touchend', function(){
+    document.querySelector('.nav-wrap').classList.add('nav-wrap-active')
+})
+document.querySelector('.mobile-nav-close').addEventListener('touchend', function(){
+    document.querySelector('.nav-wrap').classList.remove('nav-wrap-active')
+})

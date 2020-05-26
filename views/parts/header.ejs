@@ -25,18 +25,30 @@
 </header>
 <nav>
     <div class="nav-wrap">
+        <div class="mobile-btn-menu">
+            <img src="img/burger.png" alt="">
+        </div>
         <a href="/" class="logo"><img src="img/logo.svg" alt=""></a>
+        <div class="mobile-btn-phone">
+            <img src="img/phone.png" alt="">
+        </div>
         <ul class="navigation">
-            <li><span class="submenu-btn"><a href="/catalog">Каталог</a>
-                <div class="menu-list">
-                    <a href="/catalog/evroruberoid" class="menu-list-item">Еврорубероид</a>
-                    <a href="/catalog/mastika"  class="menu-list-item">Мастики, праймеры</a>
-                    <a href="/catalog/germetik"  class="menu-list-item">Герметики</a>
-                    <a href="/catalog/podkladochnyi-kover"  class="menu-list-item">Подкладочный ковер</a>
-                    <a href="/catalog/shlakoblock"  class="menu-list-item">Шлакоблок</a>
-                </div>
-                <img src="img/arrow.svg" alt="">
-            </span></li>
+            <div class="mobile-search">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="7" cy="7" r="6" stroke="#C3CEDB" stroke-width="2"/>
+                    <path d="M15 15L12 12" stroke="#C3CEDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Поиск</span>
+            </div>
+            <div class="mobile-langs">
+                <div class="menu-list-item menu-list-item-active">RU</div>
+                <div class="menu-list-item">UA</div>
+            </div>
+            <div class="mobile-nav-close">
+                <span class="close1"></span>
+                <span class="close2"></span>
+            </div>
+            <li><a href="/catalog">Каталог</a></li>
             <li><a href="/certification">Сертификаты</a></li>
             <li><span class="submenu-btn"><a>О нас</a>
                 <div class="menu-list">
@@ -52,6 +64,7 @@
             <li><a href="/faq">FAQ</a></li>
             <li><span class="call">Перезвоните мне</span></li>
         </ul>
+        <div class="mobile-bg-menu"></div>
     </div>
 </nav>
 <div class="download-btns">
