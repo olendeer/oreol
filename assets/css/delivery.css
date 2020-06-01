@@ -99,3 +99,84 @@
 footer {
   margin-top: 100px;
 }
+
+@media screen and (max-width: 600px) {
+  .breadcrumbs {
+    margin-bottom: 40px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 0px 8px;
+    width: 100%;
+  }
+  .breadcrumbs a {
+    font-size: 0.5rem;
+    line-height: 0.9rem;
+  }
+
+  .content {
+    width: 100%;
+    padding: 0px;
+    margin-top: 0px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  .content .content-header {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    margin-bottom: 20px;
+    padding: 0px 8px;
+  }
+  .content .content-title {
+    box-sizing: border-box;
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+    font-weight: 700;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0px 8px;
+  }
+  .content .content-body {
+    width: 100%;
+    flex-direction: column;
+  }
+  .content .content-body .delivery-item {
+    height: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .content .content-body .delivery-item:nth-child(5) {
+    margin-top: 0px;
+  }
+  .content .content-body .delivery-item:nth-child(6) {
+    margin-top: 0px;
+  }
+  .content .content-body .delivery-item img {
+    width: 148px;
+    height: 92px;
+    margin-right: 13px;
+  }
+  .content .content-body .delivery-item .delivery-info {
+    width: auto;
+  }
+  .content .content-body .delivery-item .delivery-info .delivery-name {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+    margin-bottom: 10px;
+  }
+  .content .content-body .delivery-item .delivery-info .delivery-chars {
+    font-size: 0.5rem;
+    line-height: 0.75rem;
+    margin-bottom: 10px;
+  }
+  .content .content-body .delivery-item .delivery-info .delivery-price {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+    font-weight: 500;
+  }
+
+  footer {
+    margin-top: 20px;
+  }
+}

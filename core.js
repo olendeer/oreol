@@ -166,7 +166,7 @@ app.get('/about/articles', (request, response) => {
 app.get('/about/:info', (request, response) => {
 	if(request.params.info == 'feedback'){
 		let data = {
-			countFeedbacks: 4,
+			countFeedbacks: 5,
 			countPage: 2,
 			numberPage: 1
 		}

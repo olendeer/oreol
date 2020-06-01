@@ -129,3 +129,80 @@
 footer {
   margin-top: 100px;
 }
+
+@media screen and (max-width: 600px) {
+  .breadcrumbs {
+    white-space: nowrap;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 0px 8px;
+    width: 100%;
+  }
+  .breadcrumbs a {
+    font-size: 0.5rem;
+    line-height: 0.9rem;
+  }
+
+  .content {
+    width: 100%;
+    padding: 0px;
+    height: auto;
+    margin-top: 0px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+  }
+  .content .content-header {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    margin-bottom: 20px;
+    padding: 0px 8px;
+  }
+  .content .content-body {
+    width: 100%;
+  }
+  .content .content-body .feedback-item {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 20px 8px;
+  }
+  .content .content-body .feedback-item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  .content .content-body .feedback-item img {
+    height: 20px;
+    width: 70px;
+    float: left;
+  }
+  .content .content-body .feedback-item .feedback-item-info {
+    margin-left: 0px;
+  }
+  .content .content-body .feedback-item .feedback-item-info .info-header {
+    margin-left: 78px;
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+  }
+  .content .content-body .feedback-item .feedback-item-info .info-text {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+  }
+  .content .feedback-items-navigation {
+    margin-top: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 8px;
+    justify-content: space-between;
+  }
+  .content .feedback-items-navigation .pagination {
+    display: none;
+  }
+  .content .feedback-items-navigation .nav-btn span {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+  }
+
+  footer {
+    margin-top: 40px;
+  }
+}

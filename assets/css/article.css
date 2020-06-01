@@ -11,11 +11,13 @@
   line-height: 0.9rem;
   text-decoration: none;
   font-weight: 700;
+  text-overflow: ellipsis;
 }
 .breadcrumbs .prev-page {
   color: #1235C4;
 }
 .breadcrumbs .prev-page-line {
+  min-width: 25px;
   width: 25px;
   height: 1px;
   background-color: #1235C4;
@@ -23,6 +25,9 @@
 }
 .breadcrumbs .current-page {
   color: #5E696F;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content {
@@ -40,15 +45,22 @@
 }
 .content .content-body {
   width: 100%;
-  font-size: 0.7rem;
-  line-height: 1.05rem;
-  color: #2B2E40;
 }
 .content .content-body img {
   width: 580px;
   height: 400px;
   margin-right: 20px;
   float: left;
+}
+.content .content-body .text {
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  color: #2B2E40;
+  margin-bottom: 20px;
+}
+.content .content-body ul {
+  list-style-type: disc;
+  list-style-position: inside;
 }
 
 .articles-items-navigation {
@@ -86,4 +98,79 @@
 
 footer {
   margin-top: 100px;
+}
+
+@media screen and (max-width: 600px) {
+  .breadcrumbs {
+    white-space: nowrap;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 0px 8px;
+    width: 100%;
+  }
+  .breadcrumbs a {
+    font-size: 0.5rem;
+    line-height: 0.9rem;
+  }
+
+  .content {
+    width: 100%;
+    padding: 0px;
+    margin-top: 0px;
+    box-sizing: border-box;
+  }
+  .content .content-header {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    margin-bottom: 20px;
+    padding: 0px 8px;
+  }
+  .content .content-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .content .content-body img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    order: 2;
+  }
+  .content .content-body .text {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+    padding: 0px 8px;
+  }
+  .content .content-body .text1 {
+    order: 1;
+  }
+  .content .content-body ul {
+    order: 3;
+  }
+  .content .content-body .text2 {
+    order: 4;
+  }
+  .content .content-body .text3 {
+    order: 5;
+  }
+
+  .articles-items-navigation {
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 8px;
+    justify-content: space-between;
+  }
+  .articles-items-navigation .pagination {
+    display: none;
+  }
+  .articles-items-navigation .nav-btn span {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+  }
+
+  footer {
+    margin-top: 40px;
+  }
 }

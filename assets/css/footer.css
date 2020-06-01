@@ -391,4 +391,44 @@ footer .footer-btn-menu {
   .none-active-footer .footer-btn-menu img {
     transform: rotateZ(180deg);
   }
+
+  .call-modal .wrap-modal {
+    width: 312px;
+    height: 478px;
+    padding: 25px 20px 20px 20px;
+  }
+  .call-modal .wrap-modal .call-header {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .call-modal .wrap-modal .call-title {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+    margin-bottom: 30px;
+  }
+  .call-modal .wrap-modal form {
+    margin-bottom: 10px;
+  }
+  .call-modal .wrap-modal form .call-input-wrap .call-input {
+    height: 45px;
+  }
+  .call-modal .wrap-modal form .call-input-wrap .placeholder {
+    height: 45px;
+  }
+  .call-modal .wrap-modal form .call-input-wrap .error-img {
+    top: 15px;
+  }
+  .call-modal .wrap-modal form .call-input-wrap .active-input {
+    height: 18px;
+  }
+  .call-modal .wrap-modal form .submit-btn {
+    margin-top: 8px;
+    height: 50px;
+  }
+  .call-modal .wrap-modal .chart-title {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+    font-weight: bold;
+  }
 }
