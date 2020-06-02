@@ -131,6 +131,7 @@ nav .nav-wrap .navigation {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  white-space: nowrap;
 }
 nav .nav-wrap .navigation .mobile-search, nav .nav-wrap .navigation .mobile-langs, nav .nav-wrap .navigation .mobile-bg-menu {
   display: none;

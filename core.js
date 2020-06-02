@@ -1,8 +1,7 @@
 const express = require('express');
 // const multer = require('multer');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 // const path = require('path');
-// const appFolder = require('app-root-path');
 const app = express();
 
 
@@ -14,8 +13,8 @@ async function start(){
 		app.listen(PORT, () => {
 			console.log('Server has been started...');
 		});
-		// await mongoose.connect('mongodb+srv://olendeer:1029384756qazqwertyuiop@multilanding-rqsma.gcp.mongodb.net/Multilanding?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
-		// console.log('Set connetion to data base');
+		await mongoose.connect('mongodb+srv://olendeer:1029384756qazqwertyuiop@oreol-pqhp8.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+		console.log('Set connetion to data base');
 	}catch(e){
 		console.log(e)
 		console.log('Not connetion!')
@@ -40,13 +39,13 @@ async function start(){
 // });
 start();
 
-// console.log(appFolder)
 app.set('view engine', 'ejs');
 app.use(express.static('assets'));
 app.use('/catalog', express.static('assets'));
 app.use('/about/:page', express.static('assets'));
 app.use('/about/articles/:page', express.static('assets'));
 app.use('/:categorie/product', express.static('assets'))
+app.use('/admin/:url', express.static('assets'))
 
 app.get('/', (request, response) => {
 	response.render('index');
@@ -55,7 +54,6 @@ app.get('/', (request, response) => {
 app.get('/catalog', (request, response) => {
 	response.render('catalog')
 })
-
 
 let filters = [
 	[
@@ -231,4 +229,25 @@ app.get('/:categorie/product', (request, response) => {
 	}
 	data.categorieLink = request.params.categorie;
 	response.render('product', {data: data})
+})
+
+//Admin Panel
+
+
+// let Update = mongoose.Schema({
+// 	date: String,
+// 	title: String,
+// 	text: String
+// })
+
+// const SlideItem = mongoose.model('Slide', Slide);
+
+
+
+
+
+
+
+app.get('/admin/:url', (request, response) => {
+	response.render('admin/admin');
 })
