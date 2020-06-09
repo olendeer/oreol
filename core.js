@@ -466,7 +466,6 @@ app.post('/uploadPhotoSlide', upload.single('image'), async (request, response) 
 	});
 });
 app.post('/saveSlide', jsonParser, async (request, response) => {
-	console.log(request.body)
 	await SlideItem.updateOne({_id: request.body.id}, {$set : {url: request.body.url, name: request.body.name, price: request.body.price}})
 })
 
@@ -477,6 +476,7 @@ app.post('/createSlide',  upload.single('image'), async (request, response) => {
 		price : request.body.price,
 		url: request.body.url
 	}).save()
+	console.log(request.body)
 })
 
 app.post('/deleteSlide', jsonParser, async (request, response) => {

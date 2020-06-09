@@ -1,3 +1,5 @@
+import { request } from "express"
+
 document.querySelectorAll('.admin-main').forEach(element => {
     element.addEventListener('click', function(){
         this.classList.toggle('admin-main-active')
@@ -127,8 +129,7 @@ document.querySelectorAll('.edit-navigation > .save-slide').forEach(element => {
             },
             body: JSON.stringify(data)
         })
-        console.log(data)
-        // window.location.href = '/admin/slider';
+        window.location.href = '/admin/slider';
     });
 });
 
@@ -146,7 +147,8 @@ if(createSlide){
             method: 'post',
             body: data
         })
-        window.location.href = '/admin/slider';
+        console.log(data)
+        // window.location.href = '/admin/slider';
     })
 }
 
