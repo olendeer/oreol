@@ -118,7 +118,7 @@ document.querySelectorAll('.edit-navigation > .save-slide').forEach(element => {
             id: this.parentElement.parentElement.getAttribute('id'),
             name : this.parentElement.parentElement.querySelector('#name') ? this.parentElement.parentElement.querySelector('#name').value : '',
             price : this.parentElement.parentElement.querySelector('.price') ? this.parentElement.parentElement.querySelector('.price').value : '',
-            url: this.parentElement.parentElement.querySelector('.url') ? this.parentElement.parentElement.querySelector('.url').textContent : ''
+            url: this.parentElement.parentElement.querySelector('.url') ? this.parentElement.parentElement.querySelector('.url').value : ''
         }
         fetch('/saveSlide', {
             method: 'post',
