@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/contacts.css">
@@ -12,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <%- include('parts/header')%>
+    <%- include('parts/header', {links: links})%>
     <section class="breadcrumbs">
         <a href="/" class="prev-page">Главная</a>
         <span class="prev-page-line"></span>
@@ -28,45 +27,45 @@
                 <div class="contact-item">
                     <img src="img/call.svg" alt="">
                     <div class="contact-item-info">
-                        <span class="contact-info-text">+38 (093) 022-82-48</span>
-                        <span class="contact-info-text">+38 (066)-174-16-01</span>
-                        <span class="contact-info-text">+38 (097)-892-25-90</span>
+                        <span class="contact-info-text"><%=charts.phone1%></span>
+                        <span class="contact-info-text"><%=charts.phone2%></span>
+                        <span class="contact-info-text"><%=charts.phone3%></span>
                     </div>
                 </div>
                 <div class="contact-item">
                     <img src="img/email.svg" alt="">
                     <div class="contact-item-info">
-                        <span class="contact-info-text">zavod_oreol-1@ukr.net</span>
+                        <span class="contact-info-text"><%=charts.email%></span>
                     </div>
                 </div>
             </div>
             <div class="content-body-bottom content-body-item">
-                <div class="content-item-header">Склад продукции Еврорубероида, Шлакоблока, Мастики</div>
+                <div class="content-item-header"><%=charts.address1.name%></div>
                 <div class="contact-item">
                     <img src="img/location.svg" alt="">
                     <div class="contact-item-info">
-                        <span class="contact-info-text">ул.Владимирская 92</span>
-                        <span class="contact-info-text">г. Васильков</span>
-                        <span class="contact-info-text">Киевская область, 08600</span>
+                        <span class="contact-info-text"><%=charts.address1.street%></span>
+                        <span class="contact-info-text"><%=charts.address1.city%></span>
+                        <span class="contact-info-text"><%=charts.address1.region%></span>
                     </div>
                 </div>
-                <img src="img/map.png" alt="">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2555.711996663048!2d30.331986320836958!3d50.166522729062486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4a53a9803d285%3A0xff03782ec2fa9a16!2z0JLQu9Cw0LTQuNC80LjRgNGB0LrQsNGPINGD0LsuLCA5Miwg0JLQsNGB0LjQu9GM0LrQvtCyLCDQmtC40LXQstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCAwODYwMg!5e0!3m2!1sru!2sua!4v1591718253377!5m2!1sru!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
             <div class="content-body-bottom content-body-item">
-                <div class="content-item-header">Склад продукции Еврорубероида, Мастики </div>
+                <div class="content-item-header"><%=charts.address2.name%></div>
                 <div class="contact-item">
                     <img src="img/location.svg" alt="">
                     <div class="contact-item-info">
-                        <span class="contact-info-text">Ул.Коноплянская ,18. </span>
-                        <span class="contact-info-text">г. Киев</span>
-                        <span class="contact-info-text">04074</span>
+                        <span class="contact-info-text"><%=charts.address2.street%></span>
+                        <span class="contact-info-text"><%=charts.address2.city%></span>
+                        <span class="contact-info-text"><%=charts.address2.region%></span>
                     </div>
                 </div>
-                <img src="img/map.png" alt="">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2537.3839050498373!2d30.463326715293455!3d50.50842329106762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4d279a095216b%3A0x5c750c2cb7821672!2z0YPQuy4g0JrQvtC90L7Qv9C70Y_QvdGB0LrQsNGPLCAxOCwg0JrQuNC10LIsIDAyMDAw!5e0!3m2!1sru!2sua!4v1591718681202!5m2!1sru!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
         </div>
     </section>
-    <%- include('parts/footer')%>
+    <%- include('parts/footer', {links: links, charts: charts})%>
     <script src="js/modal.js"></script>
 </body>
 </html>

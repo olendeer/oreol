@@ -17,11 +17,11 @@
         </span>
     </div>
     <div class="phones">
-        <span class="phone">+38(097)-892-25-90</span>
-        <span class="phone">+38(097)-892-25-90</span>
-        <span class="phone">+38(093)-022-82-48</span>
+        <span class="phone"><%=charts.phone1%></span>
+        <span class="phone"><%=charts.phone2%></span>
+        <span class="phone"><%=charts.phone3%></span>
     </div>
-    <span class="chart">пн-пт: 8:00 - 19:00, сб-вс: 9:00 - 13:00</span>
+    <span class="chart"><%=charts.chart%></span>
 </header>
 <nav>
     <div class="nav-wrap">
@@ -48,20 +48,22 @@
                 <span class="close1"></span>
                 <span class="close2"></span>
             </div>
-            <li><a href="/catalog">Каталог</a></li>
-            <li><a href="/certification">Сертификаты</a></li>
-            <li><span class="submenu-btn"><a>О нас</a>
-                <div class="menu-list">
-                    <a href="/about/contacts" class="menu-list-item">Контакты</a>
-                    <a href="/about/company" class="menu-list-item">О компании</a>
-                    <a href="/about/feedback" class="menu-list-item">Отзывы</a>
-                    <a href="/about/articles" class="menu-list-item">Статьи</a>
-                </div>
-                <img src="img/arrow.svg" alt="">
-            </span></li>
-            <li><a href="/delivery">Оплата и доставка</a></li>
-            <li><a href="/examples">Примеры работ</a></li>
-            <li><a href="/faq">FAQ</a></li>
+            <%for(let i = 0; i < links.length; i++){%>
+                <%if(links[i].sublink == 'Нет' || links[i].name[0] == 'Каталог'){%>
+                    <li><a href="<%=links[i].url%>"><%=links[i].name[0]%></a></li>
+                <%}else if(links[i].sublink == 'Да'){%>
+                    <li><span class="submenu-btn"><a><%=links[i].name[0]%></a>
+                        <div class="menu-list">
+                            <%for(let j = 0; j < links.length; j++){%>
+                                <%if(links[j].sublink == links[i].name[0]){%>
+                                    <a href="<%=links[j].url%>" class="menu-list-item"><%=links[j].name[0]%></a>
+                                <%}%>
+                            <%}%>
+                        </div>
+                        <img src="img/arrow.svg" alt="">
+                    </span></li>
+                <%}%>
+            <%}%>
             <li><span class="call">Перезвоните мне</span></li>
         </ul>
         <div class="mobile-bg-menu"></div>

@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/categorie.css">
@@ -12,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <%- include('parts/header')%>
+    <%- include('parts/header', {links: links})%>
     <section class="products">
         <div class="mobile-filter-bg"></div>
         <div class="<%=(data.filter) ? 'filter' : 'no-filter'%>">
@@ -62,19 +61,23 @@
                 </section>
             <%}%>
             <div class="filter-items">
-                <%for(let i = 0; i < 12; i ++){%>
+                <%for(let i = 0; i < products.length; i ++){%>
                     <div class="preview-item">
                         <div class="wrap-photo">
-                            <div class="sale">Акция</div>
-                            <img src="../img/cat-test.png" alt="">
+                            <%if(products[i].label == 'Акция'){%>
+                                <div class="sale">Акция</div>
+                            <%}else if(products[i].label == 'Новинка'){%>
+                                <div class="new">Новинка</div>
+                            <%}%>
+                            <img src="<%=products[i].img%>" alt="">
                         </div>
-                        <h3>Шлакоблок стеновой 390*190*188</h3>
+                        <h3><%=products[i].name%></h3>
                         <div class="price-info">
-                            <span class="item-price">16,90 грн</span>
-                            <div class="item-count">за единицу</div>
+                            <span class="item-price"><%=products[i].price%></span>
+                            <div class="item-count"><%=products[i].typePrice%></div>
                         </div>
                         <div class="item-rating">
-                            <span class="rating-count">4,7</span>
+                            <span class="rating-count"><%=products[i].rating%></span>
                             <div class="star-rating">
                                 <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
@@ -90,7 +93,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <a href="/<%=data.categorie%>/product">
+                        <a href="/<%=data.categorie%>/<%=products[i]._id%>">
                             <span>Подробнее</span>
                             <svg width="22" height="5" viewBox="0 0 22 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0 2.5H20" stroke="#1235C4" stroke-linejoin="round"/>
@@ -146,7 +149,7 @@
             <div class="description-text"><%=data.description%></div>
         </div>
     </section>
-    <%- include('parts/footer')%>
+    <%- include('parts/footer', {links: links, charts: charts})%>
     <script src="js/modal.js"></script>
     <script src="js/script.js"></script>
 </body>

@@ -15,31 +15,29 @@
                 </svg>
                 <div class="footer-title">Производственно-кровельная компания</div>
             </a>
-            <div class="footer-chart">пн-пт: 8:00 - 19:00, сб-вс: 9:00 - 13:00</div>
-            <div class="footer-phone">+38(097)-892-25-90</div>
-            <div class="footer-phone">+38(066)-174-16-01</div>
-            <div class="footer-phone">+38(093)-022-82-48</div> 
+            <div class="footer-chart"><%=charts.chart%></div>
+            <div class="footer-phone"><%=charts.phone1%></div>
+            <div class="footer-phone"><%=charts.phone2%></div>
+            <div class="footer-phone"><%=charts.phone3%></div> 
         </div>
+        <%for(let i = 0; i < links.length; i++){%>
+            <%if(links[i].sublink == 'Да'){%>
+                <div class="footer-item">
+                    <a href="<%=links[i].url%>" class="footer-header"><%=links[i].name[0]%></a>
+                    <%for(let j = 0; j < links.length; j++){%>
+                        <%if(links[j].sublink == links[i].name[0]){%>
+                            <a href="<%=links[j].url%>" class="footer-link"><%=links[j].name[0]%></a>
+                        <%}%>
+                    <%}%>
+                </div>
+            <%}%>
+        <%}%>
         <div class="footer-item">
-            <a href="/catalog" class="footer-header">Каталог</a>
-            <a href="/catalog/evroruberoid" class="footer-link">Еврорубероид</a>
-            <a href="/catalog/mastika" class="footer-link">Мастики, праймеры</a>
-            <a href="/catalog/germetik" class="footer-link">Герметики</a>
-            <a href="/catalog/podkladochnyi-kover" class="footer-link">Подкладочный ковер</a>
-            <a href="/catalog/shlakoblock" class="footer-link">Шлакоблок</a>
-        </div>
-        <div class="footer-item">
-            <div class="footer-header">О нас</div>
-            <a href="/about/contacts" class="footer-link">Контакты</a>
-            <a href="/about/company" class="footer-link">О компании</a>
-            <a href="/about/feedback" class="footer-link">Отзывы</a>
-            <a href="/about/articles" class="footer-link">Статьи</a>
-        </div>
-        <div class="footer-item">
-            <a href="/certification" class="footer-header">Сертификаты</a>
-            <a href="/delivery" class="footer-header">Оплата и доставка</a>
-            <a href="/examples" class="footer-header">Примеры работ</a>
-            <a href="/faq" class="footer-header">FAQ</a>
+            <%for(let i = 0; i < links.length; i++){%>
+                <%if(links[i].sublink == 'Нет'){%>
+                    <a href="<%=links[i].url%>" class="footer-header"><%=links[i].name[0]%></a>
+                <%}%>
+            <%}%>
         </div>
         <div class="footer-item">
             <a href="/calculator" class="footer-link">Калькулятор шлакоблока</a>
@@ -79,6 +77,6 @@
             <input type="submit" name="submit" class="submit-btn">
         </form>
         <span class="chart-title">*Время работы магазина</span>
-        <span class="chart-title">пн-пт: 8:00 - 19:00, сб-вс: 9:00 - 13:00</span>
+        <span class="chart-title"><%=charts.chart%></span>
     </div>
 </div>

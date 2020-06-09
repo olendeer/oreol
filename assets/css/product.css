@@ -132,6 +132,7 @@
   margin-bottom: 25px;
 }
 .product-preview .product-info .product-nav .product-btns .about-btn {
+  text-decoration: none;
   display: inline-block;
   color: #1235C4;
   font-size: 0.7rem;
@@ -391,6 +392,9 @@
   width: 1180px;
   margin: 0 auto;
   margin-bottom: 100px;
+}
+.comments #disqus_thread {
+  max-width: 578px;
 }
 .comments .comments-header {
   font-size: 1.2rem;

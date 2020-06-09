@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/delivery.css">
@@ -12,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <%- include('parts/header')%>
+    <%- include('parts/header', {links: links})%>
     <section class="breadcrumbs">
         <a href="/" class="prev-page">Главная</a>
         <span class="prev-page-line"></span>
@@ -27,75 +26,19 @@
         <div class="content-title content-title-bold">В нашем распоряжении есть все виды транспорта:
         </div>
         <div class="content-body">
-            <div class="delivery-item">
-                <img src="img/delivery1.png" alt="">
-                <div class="delivery-info">
-                    <div class="delivery-name">Камаз бортовой</div>
-                    <div class="delivery-chars"> 
-                        Количество поддонов -20 шт. <br>
-                        Грузоподъемность - 21т. <br>
-                        Длинна кузова - 16м. </div>
-                    <div class="delivery-price">Цена договорная</div>
+            <%for(let i = 0; i < marks.length; i++){%>
+                <div class="delivery-item">
+                    <img src="<%=marks[i].imgs[0]%>" alt="">
+                    <div class="delivery-info">
+                        <div class="delivery-name"><%=marks[i].name%></div>
+                        <div class="delivery-chars"> <%-marks[i].title%></div>
+                        <div class="delivery-price"><%=marks[i].price%></div>
+                    </div>
                 </div>
-            </div>
-            <div class="delivery-item">
-                <img src="img/delivery2.png" alt="">
-                <div class="delivery-info">
-                    <div class="delivery-name">МАЗ шаланда </div>
-                    <div class="delivery-chars"> 
-                        Количество поддонов -12 шт. <br>
-                        Грузоподъемность - 12т. <br>
-                        Длинна кузова - 10,5м. </div>
-                    <div class="delivery-price">Цена договорная</div>
-                </div>
-            </div>
-            <div class="delivery-item">
-                <img src="img/delivery3.png" alt="">
-                <div class="delivery-info">
-                    <div class="delivery-name">Камаз Бортовой + прицеп </div>
-                    <div class="delivery-chars"> 
-                        Количество поддонов -12 шт. <br>
-                        Грузоподъемность - 12т. <br>
-                        Длинна кузова - 10,5м. </div>
-                    <div class="delivery-price">Цена договорная</div>
-                </div>
-            </div>
-            <div class="delivery-item">
-                <img src="img/delivery4.png" alt="">
-                <div class="delivery-info">
-                    <div class="delivery-name">Камаз бортовой</div>
-                    <div class="delivery-chars"> 
-                        Количество поддонов -12 шт. <br>
-                        Грузоподъемность - 12т. <br>
-                        Длинна кузова - 10,5м. </div>
-                    <div class="delivery-price">Цена договорная</div>
-                </div>
-            </div>
-            <div class="delivery-item">
-                <img src="img/delivery5.png" alt="">
-                <div class="delivery-info">
-                    <div class="delivery-name">Камаз бортовой</div>
-                    <div class="delivery-chars"> 
-                        Количество поддонов -12 шт. <br>
-                        Грузоподъемность - 12т. <br>
-                        Длинна кузова - 10,5м. </div>
-                    <div class="delivery-price">Цена договорная</div>
-                </div>
-            </div>
-            <div class="delivery-item">
-                <img src="img/delivery6.png" alt="">
-                <div class="delivery-info">
-                    <div class="delivery-name">Камаз бортовой</div>
-                    <div class="delivery-chars"> 
-                        Количество поддонов -12 шт. <br>
-                        Грузоподъемность - 12т. <br>
-                        Длинна кузова - 10,5м. </div>
-                    <div class="delivery-price">Цена договорная</div>
-                </div>
-            </div>
+            <%}%>
         </div>
     </section>
-    <%- include('parts/footer')%>
+    <%- include('parts/footer', {links: links, charts: charts})%>
     <script src="js/modal.js"></script>
 </body>
 </html>

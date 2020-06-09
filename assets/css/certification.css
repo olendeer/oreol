@@ -29,7 +29,7 @@
   width: 1180px;
   margin: 0 auto;
   margin-top: 80px;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 .content .content-header {
   color: #5E696F;
@@ -55,6 +55,7 @@
   height: 250px;
   background-color: #F1F1F1;
   display: flex;
+  margin-bottom: 40px;
 }
 .certificate-item img {
   margin-right: 25px;
@@ -101,9 +102,6 @@
 .certificate-item .certificate-btn:hover svg path {
   fill: #163391;
 }
-.certificate-item:first-child {
-  margin-bottom: 40px;
-}
 
 .description {
   width: 100%;
@@ -149,7 +147,7 @@
     padding: 0px 8px;
     margin-top: 0px;
     box-sizing: border-box;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
   .content .content-header {
     font-size: 0.8rem;
@@ -169,11 +167,6 @@
   .content .content-body .certificate-item {
     height: 157px;
     align-items: center;
-  }
-  .content .content-body .certificate-item:first-child {
-    margin-bottom: 0px;
-  }
-  .content .content-body .certificate-item:not(:last-child) {
     margin-bottom: 10px;
   }
   .content .content-body .certificate-item img {

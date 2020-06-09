@@ -57,13 +57,21 @@
   width: 480px;
   height: 620px;
   background-color: #F1F1F1;
+  position: relative;
+  display: flex;
+  flex-wrap: unset;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .content .content-body .content-body-bottom .content-item-header {
   height: 110px;
 }
-.content .content-body .content-body-bottom > img {
+.content .content-body .content-body-bottom > iframe {
+  position: absolute;
   width: 480px;
   height: 302px;
+  bottom: 0;
+  left: 0;
 }
 .content .content-body .content-body-item {
   padding: 40px;

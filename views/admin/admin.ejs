@@ -10,5 +10,843 @@
 </head>
 <body>
     <%- include('parts/header')%>
+    <div class="content">
+        <%if(url == 'main'){%>
+            <div class="edit-header">Редактирование меню</div>
+            <div class="edit-block">
+                <div class="paragraph-header">Выберите пункт меню для редактирования</div>
+                <div class="admin-main paragraphs-main">
+                    <%if(section){%>
+                        <span class="admin-list-item-active paragraph-list-item-active"><%=link.name[0]%></span>
+                    <%}else{%>
+                        <span class="admin-list-item-active paragraph-list-item-active">Не выбрано</span>
+                    <%}%>
+                    <div class="paragraph-list admin-list">
+                        <%for(let i = 0; i < data.length; i++){%>
+                            <a href="/admin/main/<%=data[i]._id%>" class="admin-list-item paragraph-list-item"><%=data[i].name[0]%></a>
+                        <%}%>
+                    </div>
+                    <img src="img/arrow.svg" alt="">
+                </div>
+                <%if(section){%>
+                    <div class="active-edit-block">Редактируемая ссылка: <span><%=link.name[0]%></span></div>
+                <%}%>    
+                <a href="/admin/main/new" class="add-new-link"></a>
+                <%if(section){%>
+                    <div class="editing-element" id="<%=link._id%>">
+                        <div class="edit-item submain">
+                            <div class="edit-item-header">Подменю</div>
+                            <div class="edit-item-content">
+                                <div class="edit-input-wrap">
+                                    <input type="text" id="sublink" value="<%=link.sublink%>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-item">
+                            <div class="edit-item-header">Имя</div>
+                            <div class="edit-item-content">
+                                <div class="edit-input-wrap">
+                                    <label for="name-ru">RU</label>
+                                    <input type="text" id="name-ru" value="<%=link.name[0]%>">
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label for="name-ua">UA</label>
+                                    <input type="text" id="name-ua" value="<%=link.name[1]%>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-item">
+                            <div class="edit-item-header">Ссылка</div>
+                            <div class="edit-item-content">
+                                <div class="edit-input-wrap">
+                                    <input type="text" id="url" value="<%=link.url%>">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <%}%>
+            </div>
+            <%if(section){%>
+                <div class="edit-navigation">
+                    <div class="save save-main btn">Сохранить</div>
+                    <div class="delete btn">Удалить</div>
+                </div>
+            <%}%>
+        <%}else if(url == 'charts'){%>
+            <div class="edit-header">Редактирование контактной информации</div>
+            <div class="edit-block" id="<%=data._id%>">
+                <div class="edit-item">
+                    <div class="edit-item-header">Номера</div>
+                    <div class="edit-item-content">
+                        <div class="edit-input-wrap">
+                            <label for="phone1">Номер 1</label>
+                            <input type="text" id="phone1" value="<%=data.phone1%>">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="phone2">Номер 2</label>
+                            <input type="text" id="phone2" value="<%=data.phone2%>">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="phone3">Номер 3</label>
+                            <input type="text" id="phone3" value="<%=data.phone3%>">
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-item">
+                    <div class="edit-item-header">Время работы</div>
+                    <div class="edit-item-content">
+                        <div class="edit-input-wrap">
+                            <input type="text" id="chart" value="<%=data.chart%>">
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-item">
+                    <div class="edit-item-header">Почта</div>
+                    <div class="edit-item-content">
+                        <div class="edit-input-wrap">
+                            <input type="text" id="email" value="<%=data.email%>">
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-item adress-edit-item">
+                    <div class="edit-item-header" id="address1"><%=data.address1.name%></div>
+                    <div class="edit-item-content">
+                        <div class="edit-input-wrap">
+                            <label for="street1">Улица</label>
+                            <input type="text" id="street1" value="<%=data.address1.street%>">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="city1">Город</label>
+                            <input type="text" id="city1" value="<%=data.address1.city%>">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="region1">Область</label>
+                            <input type="text" id="region1" value="<%=data.address1.region%>">
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-item adress-edit-item">
+                    <div class="edit-item-header" id="address2"><%=data.address2.name%></div>
+                    <div class="edit-item-content">
+                        <div class="edit-input-wrap">
+                            <label for="street2">Улица</label>
+                            <input type="text" id="street2" value="<%=data.address2.street%>">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="city2">Город</label>
+                            <input type="text" id="city2" value="<%=data.address2.city%>">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="region2">Область</label>
+                            <input type="text" id="region2" value="<%=data.address2.region%>">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="edit-navigation">
+                <div class="save save-charts btn">Сохранить</div>
+            </div>
+        <%}else if(url == 'marks'){%>
+            <div class="edit-header">Управление записями</div>
+            <div class="edit-block">
+                <div class="paragraph-header">Выберите тип записи для редактирования</div>
+                <div class="admin-main marks-main">
+                    <%if(section){%>
+                        <span class="admin-list-item-active mark-list-item-active"><%=marks[0].typeName%></span>
+                    <%}else{%>
+                        <span class="admin-list-item-active mark-list-item-active">Не выбрано</span>
+                    <%}%>
+                    <div class="marks-list admin-list">
+                        <a href="/admin/marks/certification" class="admin-list-item marks-list-item">Сертификаты</a>
+                        <a href="/admin/marks/examples" class="admin-list-item marks-list-item">Примеры работ</a>
+                        <a href="/admin/marks/delivery" class="admin-list-item marks-list-item">Оплата и доставка</a>
+                        <a href="/admin/marks/faq" class="admin-list-item marks-list-item">FAQ</a>
+                    </div>
+                    <img src="img/arrow.svg" alt="">
+                </div>
+                <a href="/admin/marks/new" class="add-new-mark"></a>
+                <%if(section != 'new' && section != undefined){%>
+                    <div class="marks-data">
+                    <%if(marks[0].typeName == 'Сертификат'){%>
+                        <%for(let i = 0;i < marks.length; i++){%>
+                            <div class="mark-item" id="<%=marks[i]._id%>" type="<%=marks[i].type%>">
+                                <div class="img-data img-data-certification">
+                                    <div class="img-data-wrap">
+                                        <img src="<%=marks[i].imgs[0]%>" alt="">
+                                        <label for="<%=marks[i]._id + 'file'%>"></label>
+                                        <input type="file" id="<%=marks[i]._id + 'file'%>" name="photo" onchange="uploadPhoto(this);">
+                                    </div>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label for="title">Подпись</label>
+                                    <textarea name="" class="title"><%=marks[i].title%></textarea>
+                                </div>
+                                <div class="edit-navigation">
+                                    <div class="save save-mark btn">Сохранить</div>
+                                    <div class="delete delete-mark btn">Удалить</div>
+                                </div>
+                            </div>
+                        <%}%>
+                    <%}else if(marks[0].typeName == 'Пример работ'){%>
+                        <%for(let i = 0;i < marks.length; i++){%>
+                            <div class="mark-item" id="<%=marks[i]._id%>" type="<%=marks[i].type%>">
+                                <div class="img-data img-data-certification">
+                                    <div class="img-data-wrap">
+                                        <img src="<%=marks[i].imgs[0]%>" alt="">
+                                        <label for="<%=marks[i]._id + 'file'%>"></label>
+                                        <input type="file" id="<%=marks[i]._id + 'file'%>" name="photo" onchange="uploadPhoto(this);">
+                                    </div>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label for="name">Имя</label>
+                                    <input type="text" id="name" value="<%=marks[i].name%>">
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label for="title">Подпись</label>
+                                    <textarea name="" class="title"><%=marks[i].title%></textarea>
+                                </div>
+                                <div class="edit-navigation">
+                                    <div class="save save-mark btn">Сохранить</div>
+                                    <div class="delete delete-mark btn">Удалить</div>
+                                </div>
+                            </div>
+                        <%}%>
+                    <%}else if(marks[0].typeName == 'Оплата и доставка'){%>
+                        <%for(let i = 0;i < marks.length; i++){%>
+                            <div class="mark-item" id="<%=marks[i]._id%>" type="<%=marks[i].type%>">
+                                <div class="img-data img-data-certification">
+                                    <div class="img-data-wrap">
+                                        <img src="<%=marks[i].imgs[0]%>" alt="">
+                                        <label for="<%=marks[i]._id + 'file'%>"></label>
+                                        <input type="file" id="<%=marks[i]._id + 'file'%>" name="photo" onchange="uploadPhoto(this);">
+                                    </div>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label for="name">Имя</label>
+                                    <input type="text" id="name" value="<%=marks[i].name%>">
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label for="title">Характеристики</label>
+                                    <textarea name="" class="title"><%=marks[i].title%></textarea>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label for="price">Цена</label>
+                                    <input type="text" class="price" value="<%=marks[i].price%>">
+                                </div>
+                                <div class="edit-navigation">
+                                    <div class="save save-mark btn">Сохранить</div>
+                                    <div class="delete delete-mark btn">Удалить</div>
+                                </div>
+                            </div>
+                        <%}%>
+                    <%}else if(marks[0].typeName == 'FAQ'){%>
+                        <%for(let i = 0;i < marks.length; i++){%>
+                            <div class="mark-item" id="<%=marks[i]._id%>" type="<%=marks[i].type%>">
+                                <div class="edit-input-wrap">
+                                    <label >Категория</label>
+                                    <div class="admin-main marks-main">
+                                        <span class="admin-list-item-active mark-list-item-active categorie"><%=marks[i].categorie%></span>
+                                        <div class="marks-list admin-list">
+                                            <span class="admin-list-item marks-list-item">Еврорубероид</span>
+                                            <span class="admin-list-item marks-list-item">Мастики, праймеры</span>
+                                            <span class="admin-list-item marks-list-item">Герметики</span>
+                                            <span class="admin-list-item marks-list-item">Подкладочный ковер</span>
+                                            <span class="admin-list-item marks-list-item">Шлакоблок</span>
+                                        </div>
+                                        <img src="img/arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label for="name">Вопрос</label>
+                                    <input type="text" id="name" value="<%=marks[i].name%>">
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label for="title">Ответ</label>
+                                    <textarea name="" class="title"><%=marks[i].title%></textarea>
+                                </div>
+                                <div class="edit-navigation">
+                                    <div class="save save-mark btn">Сохранить</div>
+                                    <div class="delete delete-mark btn">Удалить</div>
+                                </div>
+                            </div>
+                        <%}%>
+                    <%}%>
+                    </div>
+                <%}else if(section == 'new'){%>
+                    <div class="marks-new">
+                        <div class="edit-input-wrap">
+                            <label >Тип записи</label>
+                            <div class="admin-main marks-main">
+                                <span class="admin-list-item-active mark-list-item-active">Не выбрано</span>
+                                <div class="marks-list admin-list">
+                                    <span class="admin-list-item marks-list-item" type="certification">Сертификат</span>
+                                    <span class="admin-list-item marks-list-item" type="examples">Пример работ</span>
+                                    <span class="admin-list-item marks-list-item" type="delivery">Оплата и доставка</span>
+                                    <span class="admin-list-item marks-list-item" type="faq">FAQ</span>
+                                </div>
+                                <img src="img/arrow.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label >Категория(FAQ)</label>
+                            <div class="admin-main marks-main">
+                                <span class="admin-list-item-active mark-list-item-active categorie">Не выбрано</span>
+                                <div class="marks-list admin-list">
+                                    <span class="admin-list-item marks-list-item">Еврорубероид</span>
+                                    <span class="admin-list-item marks-list-item">Мастики, праймеры</span>
+                                    <span class="admin-list-item marks-list-item">Герметики</span>
+                                    <span class="admin-list-item marks-list-item">Подкладочный ковер</span>
+                                    <span class="admin-list-item marks-list-item">Шлакоблок</span>
+                                </div>
+                                <img src="img/arrow.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="name">Имя(Кроме Сертификатов)</label>
+                            <input type="text" id="name">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="title">Описание</label>
+                            <textarea name="title" class="title"></textarea>
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="price">Цена(Доставка)</label>
+                            <input type="text" id="price">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="name">Картинка(кроме FAQ)</label>
+                            <input type="file" id="image">
+                        </div>
+                        <div class="edit-navigation">
+                            <div class="save create-mark btn">Добавить запись</div>
+                        </div>
+                    </div>
+                <%}%>
+            </div>
+        <%}else if(url == 'slider'){%>
+            <div class="edit-header">Редактирования слайдера</div>
+            <div class="active-edit-block">Добавить слайд</div>
+            <a href="/admin/slider/new" class="add-new-link"></a>
+            <div class="edit-block edit-slider">
+                <%if(!section){%>
+                    <%for(let i = 0;i < data.length; i++){%>
+                        <div class="slide-item" id="<%=data[i]._id%>">
+                            <div class="img-data img-data-certification">
+                                <div class="img-data-wrap">
+                                    <img src="<%=data[i].img%>" alt="">
+                                    <label for="<%=data[i]._id + 'file'%>"></label>
+                                    <input type="file" id="<%=data[i]._id + 'file'%>" name="photo" onchange="uploadPhoto(this);">
+                                </div>
+                            </div>
+                            <div class="edit-input-wrap">
+                                <label for="name">Имя</label>
+                                <input type="text" id="name" value="<%=data[i].name%>">
+                            </div>
+                            <div class="edit-input-wrap">
+                                <label for="price">Цена</label>
+                                <input type="text" class="price" value="<%=data[i].price%>">
+                            </div>
+                            <div class="edit-input-wrap">
+                                <label for="url">Ссылка на:</label>
+                                <input type="text" class="url" value="<%=data[i].url%>">
+                            </div>
+                            <div class="edit-navigation">
+                                <div class="save save-slide btn">Сохранить</div>
+                                <div class="delete delete-slide btn">Удалить</div>
+                            </div>
+                        </div>
+                    <%}%>
+                <%}else{%>
+                    <div class="slide-item">
+                        <div class="edit-input-wrap">
+                            <label for="name">Картинка</label>
+                            <input type="file" id="image">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="price">Цена</label>
+                            <input type="text" class="price">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="url">Ссылка на:</label>
+                            <input type="text" class="url">
+                        </div>
+                        <div class="edit-navigation">
+                            <div class="save create-slide btn">Добавить слайд</div>
+                        </div>
+                    </div>
+                <%}%>
+            </div>
+        <%}else if(url == 'products'){%>
+            <div class="edit-header">Управление товарами</div>
+            <div class="edit-block">
+                <div class="paragraph-header">Выберите категорию товара</div>
+                <div class="admin-main marks-main">
+                    <%if(section){%>
+                        <span class="admin-list-item-active mark-list-item-active"><%=products[0].categorieName%></span>
+                    <%}else{%>
+                        <span class="admin-list-item-active mark-list-item-active">Не выбрано</span>
+                    <%}%>
+                    <div class="marks-list admin-list">
+                        <a href="/admin/products/evroruberoid" class="admin-list-item marks-list-item">Еврорубероид</a>
+                        <a href="/admin/products/mastika" class="admin-list-item marks-list-item">Мастики, праймеры</a>
+                        <a href="/admin/products/germetik" class="admin-list-item marks-list-item">Герметики</a>
+                        <a href="/admin/products/podkladochnyi-kover" class="admin-list-item marks-list-item">Подкладочный ковер</a>
+                        <a href="/admin/products/shlakoblock" class="admin-list-item marks-list-item">Шлакоблок</a>
+                    </div>
+                    <img src="img/arrow.svg" alt="">
+                </div>
+                <a href="/admin/products/new" class="add-new-mark"></a>
+                <%if(section != 'new' && section != undefined && products[0].categorieName != 'Новый товар'){%>
+                    <div class="products-items">
+                        <%for(let i = 0;i < products.length; i++){%>
+                            <div class="product-item" id="<%=products[i]._id%>" categorie="<%=products[i].cate%>">
+                                <img src="<%=products[i].img%>" alt="">
+                                <div class="edit-input-wrap">
+                                    <label for="title"><%=products[i].name%></label>
+                                </div>
+                                <div class="edit-navigation">
+                                    <a href="/admin/products/<%=products[i].categorie%>/<%=products[i]._id%>" class="save edit-product btn">Редактировать</a>
+                                    <div class="delete delete-product btn">Удалить</div>
+                                </div>
+                            </div>
+                        <%}%>
+                    </div>
+                <%}else if(section == 'new'){%>
+                    <div class="marks-new product-new">
+                        <div class="edit-input-wrap">
+                            <label >Тип товара</label>
+                            <div class="admin-main marks-main">
+                                <span class="admin-list-item-active mark-list-item-active product-categorie-active">Не выбрано</span>
+                                <div class="marks-list admin-list">
+                                    <span class="admin-list-item marks-list-item product-categorie" type="evroruberoid">Еврорубероид</span>
+                                    <span class="admin-list-item marks-list-item product-categorie" type="mastika">Мастики, праймеры</span>
+                                    <span class="admin-list-item marks-list-item product-categorie" type="germetik">Герметики</span>
+                                    <span class="admin-list-item marks-list-item product-categorie" type="podkladochnyi-kover">Подкладочный ковер</span>
+                                    <span class="admin-list-item marks-list-item product-categorie" type="shlakoblock">Шлакоблок</span>
+                                </div>
+                                <img src="img/arrow.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="name">Имя</label>
+                            <input type="text" class="name">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="title">Описание</label>
+                            <textarea name="title" class="description"></textarea>
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label >Картинка</label>
+                            <input type="file" id="image">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="price">Цена</label>
+                            <input type="text" class="price">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label >Тип цены</label>
+                            <div class="admin-main marks-main">
+                                <span class="admin-list-item-active mark-list-item-active product-price">Не выбрано</span>
+                                <div class="marks-list admin-list">
+                                    <span class="admin-list-item marks-list-item" >за штуку</span>
+                                    <span class="admin-list-item marks-list-item" >за единицу</span>
+                                    <span class="admin-list-item marks-list-item" >за литр</span>
+                                    <span class="admin-list-item marks-list-item" >за килограмм</span>
+                                    <span class="admin-list-item marks-list-item" >за метр</span>
+                                </div>
+                                <img src="img/arrow.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label >Шильдик</label>
+                            <div class="admin-main marks-main">
+                                <span class="admin-list-item-active mark-list-item-active product-label">Не выбрано</span>
+                                <div class="marks-list admin-list">
+                                    <span class="admin-list-item marks-list-item" >Акция</span>
+                                    <span class="admin-list-item marks-list-item" >Новинка</span>
+                                </div>
+                                <img src="img/arrow.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="rating">Рейтинг</label>
+                            <input type="text" class="rating">
+                        </div>
+                        <div class="product-data-evroruberoid product-data">
+                            <div class="edit-input-wrap">
+                                <label >Класс</label>
+                                <div class="admin-main marks-main">
+                                    <span class="admin-list-item-active mark-list-item-active evroruberoid-class">Не выбрано</span>
+                                    <div class="marks-list admin-list">
+                                        <span class="admin-list-item marks-list-item" >Субэконом</span>
+                                        <span class="admin-list-item marks-list-item" >Эконом</span>
+                                        <span class="admin-list-item marks-list-item" >Стандарт</span>
+                                        <span class="admin-list-item marks-list-item" >Бизнес</span>
+                                        <span class="admin-list-item marks-list-item" >Премиум</span>
+                                    </div>
+                                    <img src="img/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="edit-input-wrap">
+                                <label >Тип</label>
+                                <div class="admin-main marks-main">
+                                    <span class="admin-list-item-active mark-list-item-active evroruberoid-type">Не выбрано</span>
+                                    <div class="marks-list admin-list">
+                                        <span class="admin-list-item marks-list-item" >Гидроизоляционный</span>
+                                        <span class="admin-list-item marks-list-item" >Кровельный</span>
+                                    </div>
+                                    <img src="img/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="edit-input-wrap">
+                                <label>Бренд</label>
+                                <div class="admin-main marks-main">
+                                    <span class="admin-list-item-active mark-list-item-active evroruberoid-brend">Не выбрано</span>
+                                    <div class="marks-list admin-list">
+                                        <span class="admin-list-item marks-list-item" >Битумакс</span>
+                                        <span class="admin-list-item marks-list-item" >Еврорубероид</span>
+                                        <span class="admin-list-item marks-list-item" >Пластобит</span>
+                                        <span class="admin-list-item marks-list-item" >Пластобит Мост</span>
+                                        <span class="admin-list-item marks-list-item" >Пластобит Про</span>
+                                        <span class="admin-list-item marks-list-item" >Пластобит Эласт</span>
+                                    </div>
+                                    <img src="img/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="edit-input-wrap">
+                                <label>Вес кг/м2</label>
+                                <div class="admin-main marks-main">
+                                    <span class="admin-list-item-active mark-list-item-active evroruberoid-weight">Не выбрано</span>
+                                    <div class="marks-list admin-list">
+                                        <span class="admin-list-item marks-list-item" >1,5</span>
+                                        <span class="admin-list-item marks-list-item" >2,0</span>
+                                        <span class="admin-list-item marks-list-item" >2,5</span>
+                                        <span class="admin-list-item marks-list-item" >3,0</span>
+                                        <span class="admin-list-item marks-list-item" >3,5</span>
+                                        <span class="admin-list-item marks-list-item" >3,9</span>
+                                        <span class="admin-list-item marks-list-item" >4,0</span>
+                                        <span class="admin-list-item marks-list-item" >5,0</span>
+                                        <span class="admin-list-item marks-list-item" >5,4</span>
+                                        <span class="admin-list-item marks-list-item" >6,3</span>
+                                        <span class="admin-list-item marks-list-item" >6,5</span>
+                                    </div>
+                                    <img src="img/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="edit-input-wrap">
+                                <label>Основа</label>
+                                <div class="admin-main marks-main">
+                                    <span class="admin-list-item-active mark-list-item-active evroruberoid-base">Не выбрано</span>
+                                    <div class="marks-list admin-list">
+                                        <span class="admin-list-item marks-list-item" >Полиэстер</span>
+                                        <span class="admin-list-item marks-list-item" >Стеклохолст</span>
+                                    </div>
+                                    <img src="img/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="edit-input-wrap">
+                                <label>Длина руллона, м</label>
+                                <div class="admin-main marks-main">
+                                    <span class="admin-list-item-active mark-list-item-active evroruberoid-width">Не выбрано</span>
+                                    <div class="marks-list admin-list">
+                                        <span class="admin-list-item marks-list-item" >8</span>
+                                        <span class="admin-list-item marks-list-item" >10</span>
+                                        <span class="admin-list-item marks-list-item" >15</span>
+                                    </div>
+                                    <img src="img/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="edit-input-wrap">
+                                <label>Маркировка</label>
+                                <div class="admin-main marks-main">
+                                    <span class="admin-list-item-active mark-list-item-active evroruberoid-marks">Не выбрано</span>
+                                    <div class="marks-list admin-list">
+                                        <span class="admin-list-item marks-list-item" >ЕКП</span>
+                                        <span class="admin-list-item marks-list-item" >ЕПП</span>
+                                        <span class="admin-list-item marks-list-item" >ХКП</span>
+                                        <span class="admin-list-item marks-list-item" >ХКП</span>
+                                    </div>
+                                    <img src="img/arrow.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-data-mastika product-data">
+                            <div class="edit-input-wrap">
+                                <label >Продукция</label>
+                                <div class="admin-main marks-main">
+                                    <span class="admin-list-item-active mark-list-item-active mastika-product">Не выбрано</span>
+                                    <div class="marks-list admin-list">
+                                        <span class="admin-list-item marks-list-item" >Мастика</span>
+                                        <span class="admin-list-item marks-list-item" >Праймер</span>
+                                    </div>
+                                    <img src="img/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="edit-input-wrap">
+                                <label >Сфера применения</label>
+                                <div class="admin-main marks-main">
+                                    <span class="admin-list-item-active mark-list-item-active mastika-area">Не выбрано</span>
+                                    <div class="marks-list admin-list">
+                                        <span class="admin-list-item marks-list-item" >Антикоррозийная защита</span>
+                                        <span class="admin-list-item marks-list-item" >Герметизация</span>
+                                        <span class="admin-list-item marks-list-item" >Гидроизоляция</span>
+                                        <span class="admin-list-item marks-list-item" >Подготовка поверхностей</span>
+                                        <span class="admin-list-item marks-list-item" >Приклеивание</span>
+                                        <span class="admin-list-item marks-list-item" >Устройство и ремонт кровель</span>
+                                        <span class="admin-list-item marks-list-item" >Устройство кровель</span>
+                                    </div>
+                                    <img src="img/arrow.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="edit-input-wrap">
+                                <label >Тип растворителя</label>
+                                <div class="admin-main marks-main">
+                                    <span class="admin-list-item-active mark-list-item-active mastika-solvent">Не выбрано</span>
+                                    <div class="marks-list admin-list">
+                                        <span class="admin-list-item marks-list-item" >Водная эмульсия</span>
+                                        <span class="admin-list-item marks-list-item" >Органический растворитель</span>
+                                    </div>
+                                    <img src="img/arrow.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-chars">
+                            <div class="product-chars-header">Характеристики товара</div>
+                            <span>Добавить поле</span> <span class="add-new-char"></span>
+                            <div class="product-chars-item">
+                                <div class="edit-input-wrap">
+                                    <label>Имя характеристики</label>
+                                    <input type="text" class="char-name">
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label>Значение характеристики</label>
+                                    <input type="text" class="char-value">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-navigation">
+                            <div class="save create-product btn">Добавить товар</div>
+                        </div>
+                    </div>
+                <%}else if(product){%>
+                    <div class="marks-new product-new" id="<%=product._id%>">
+                        <div class="img-data img-data-certification">
+                            <div class="img-data-wrap">
+                                <img src="<%=product.img%>" alt="">
+                                <label for="<%=product._id + 'file'%>"></label>
+                                <input type="file" id="<%=product._id + 'file'%>" name="photo" onchange="uploadPhotoProduct(this);">
+                            </div>
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="name">Имя</label>
+                            <input type="text" class="name" value="<%=product.name%>">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="title">Описание</label>
+                            <textarea name="title" class="description"><%=product.description%></textarea>
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="price">Цена</label>
+                            <input type="text" class="price" value="<%=product.price%>">
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label >Тип цены</label>
+                            <div class="admin-main marks-main">
+                                <span class="admin-list-item-active mark-list-item-active product-price"><%=product.typePrice%></span>
+                                <div class="marks-list admin-list">
+                                    <span class="admin-list-item marks-list-item" >за штуку</span>
+                                    <span class="admin-list-item marks-list-item" >за единицу</span>
+                                    <span class="admin-list-item marks-list-item" >за литр</span>
+                                    <span class="admin-list-item marks-list-item" >за килограмм</span>
+                                    <span class="admin-list-item marks-list-item" >за метр</span>
+                                </div>
+                                <img src="img/arrow.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label >Шильдик</label>
+                            <div class="admin-main marks-main">
+                                <span class="admin-list-item-active mark-list-item-active product-label"><%=product.label%></span>
+                                <div class="marks-list admin-list">
+                                    <span class="admin-list-item marks-list-item" >Акция</span>
+                                    <span class="admin-list-item marks-list-item" >Новинка</span>
+                                </div>
+                                <img src="img/arrow.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="rating">Рейтинг</label>
+                            <input type="text" class="rating" value="<%=product.rating%>">
+                        </div>
+                        <%if(product.categorie == 'evroruberoid'){%>
+                            <div class="product-data-evroruberoid">
+                                <div class="edit-input-wrap">
+                                    <label >Класс</label>
+                                    <div class="admin-main marks-main">
+                                        <span class="admin-list-item-active mark-list-item-active evroruberoid-class"><%=product.classEvroruberoid%></span>
+                                        <div class="marks-list admin-list">
+                                            <span class="admin-list-item marks-list-item" >Субэконом</span>
+                                            <span class="admin-list-item marks-list-item" >Эконом</span>
+                                            <span class="admin-list-item marks-list-item" >Стандарт</span>
+                                            <span class="admin-list-item marks-list-item" >Бизнес</span>
+                                            <span class="admin-list-item marks-list-item" >Премиум</span>
+                                        </div>
+                                        <img src="img/arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label >Тип</label>
+                                    <div class="admin-main marks-main">
+                                        <span class="admin-list-item-active mark-list-item-active evroruberoid-type"><%=product.typeEvroruberoid%></span>
+                                        <div class="marks-list admin-list">
+                                            <span class="admin-list-item marks-list-item" >Гидроизоляционный</span>
+                                            <span class="admin-list-item marks-list-item" >Кровельный</span>
+                                        </div>
+                                        <img src="img/arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label>Бренд</label>
+                                    <div class="admin-main marks-main">
+                                        <span class="admin-list-item-active mark-list-item-active evroruberoid-brend"><%=product.brendEvroruberoid%></span>
+                                        <div class="marks-list admin-list">
+                                            <span class="admin-list-item marks-list-item" >Битумакс</span>
+                                            <span class="admin-list-item marks-list-item" >Еврорубероид</span>
+                                            <span class="admin-list-item marks-list-item" >Пластобит</span>
+                                            <span class="admin-list-item marks-list-item" >Пластобит Мост</span>
+                                            <span class="admin-list-item marks-list-item" >Пластобит Про</span>
+                                            <span class="admin-list-item marks-list-item" >Пластобит Эласт</span>
+                                        </div>
+                                        <img src="img/arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label>Вес кг/м2</label>
+                                    <div class="admin-main marks-main">
+                                        <span class="admin-list-item-active mark-list-item-active evroruberoid-weight"><%=product.weightEvroruberoid%></span>
+                                        <div class="marks-list admin-list">
+                                            <span class="admin-list-item marks-list-item" >1,5</span>
+                                            <span class="admin-list-item marks-list-item" >2,0</span>
+                                            <span class="admin-list-item marks-list-item" >2,5</span>
+                                            <span class="admin-list-item marks-list-item" >3,0</span>
+                                            <span class="admin-list-item marks-list-item" >3,5</span>
+                                            <span class="admin-list-item marks-list-item" >3,9</span>
+                                            <span class="admin-list-item marks-list-item" >4,0</span>
+                                            <span class="admin-list-item marks-list-item" >5,0</span>
+                                            <span class="admin-list-item marks-list-item" >5,4</span>
+                                            <span class="admin-list-item marks-list-item" >6,3</span>
+                                            <span class="admin-list-item marks-list-item" >6,5</span>
+                                        </div>
+                                        <img src="img/arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label>Основа</label>
+                                    <div class="admin-main marks-main">
+                                        <span class="admin-list-item-active mark-list-item-active evroruberoid-base"><%=product.baseEvroruberoid%></span>
+                                        <div class="marks-list admin-list">
+                                            <span class="admin-list-item marks-list-item" >Полиэстер</span>
+                                            <span class="admin-list-item marks-list-item" >Стеклохолст</span>
+                                        </div>
+                                        <img src="img/arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label>Длина руллона, м</label>
+                                    <div class="admin-main marks-main">
+                                        <span class="admin-list-item-active mark-list-item-active evroruberoid-width"><%=product.widthEvroruberoid%></span>
+                                        <div class="marks-list admin-list">
+                                            <span class="admin-list-item marks-list-item" >8</span>
+                                            <span class="admin-list-item marks-list-item" >10</span>
+                                            <span class="admin-list-item marks-list-item" >15</span>
+                                        </div>
+                                        <img src="img/arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label>Маркировка</label>
+                                    <div class="admin-main marks-main">
+                                        <span class="admin-list-item-active mark-list-item-active evroruberoid-marks"><%=product.marksEvroruberoid%></span>
+                                        <div class="marks-list admin-list">
+                                            <span class="admin-list-item marks-list-item" >ЕКП</span>
+                                            <span class="admin-list-item marks-list-item" >ЕПП</span>
+                                            <span class="admin-list-item marks-list-item" >ХКП</span>
+                                            <span class="admin-list-item marks-list-item" >ХКП</span>
+                                        </div>
+                                        <img src="img/arrow.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        <%}else if(product.categorie == 'mastika'){%>
+                            <div class="product-data-mastika product-data">
+                                <div class="edit-input-wrap">
+                                    <label >Продукция</label>
+                                    <div class="admin-main marks-main">
+                                        <span class="admin-list-item-active mark-list-item-active mastika-product"><%=product.typeMastika%></span>
+                                        <div class="marks-list admin-list">
+                                            <span class="admin-list-item marks-list-item" >Мастика</span>
+                                            <span class="admin-list-item marks-list-item" >Праймер</span>
+                                        </div>
+                                        <img src="img/arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label >Сфера применения</label>
+                                    <div class="admin-main marks-main">
+                                        <span class="admin-list-item-active mark-list-item-active mastika-area"><%=product.areaMastika%></span>
+                                        <div class="marks-list admin-list">
+                                            <span class="admin-list-item marks-list-item" >Антикоррозийная защита</span>
+                                            <span class="admin-list-item marks-list-item" >Герметизация</span>
+                                            <span class="admin-list-item marks-list-item" >Гидроизоляция</span>
+                                            <span class="admin-list-item marks-list-item" >Подготовка поверхностей</span>
+                                            <span class="admin-list-item marks-list-item" >Приклеивание</span>
+                                            <span class="admin-list-item marks-list-item" >Устройство и ремонт кровель</span>
+                                            <span class="admin-list-item marks-list-item" >Устройство кровель</span>
+                                        </div>
+                                        <img src="img/arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="edit-input-wrap">
+                                    <label >Тип растворителя</label>
+                                    <div class="admin-main marks-main">
+                                        <span class="admin-list-item-active mark-list-item-active mastika-solvent"><%=product.solventMastika%></span>
+                                        <div class="marks-list admin-list">
+                                            <span class="admin-list-item marks-list-item" >Водная эмульсия</span>
+                                            <span class="admin-list-item marks-list-item" >Органический растворитель</span>
+                                        </div>
+                                        <img src="img/arrow.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        <%}%>
+                        <div class="product-chars">
+                            <div class="product-chars-header">Характеристики товара</div>
+                            <span>Добавить поле</span> <span class="add-new-char"></span>
+                            <%for(let i = 0; i < product.characteristics.length; i++){%>
+                                <div class="product-chars-item">
+                                    <div class="edit-input-wrap">
+                                        <label>Имя характеристики</label>
+                                        <input type="text" class="char-name" value="<%=product.characteristics[i].name%>">
+                                    </div>
+                                    <div class="edit-input-wrap">
+                                        <label>Значение характеристики</label>
+                                        <input type="text" class="char-value" value="<%=product.characteristics[i].value%>">
+                                    </div>
+                                </div>
+                            <%}%>
+                        </div>
+                        <div class="edit-navigation">
+                            <div class="save save-product btn" id="<%=product._id%>">Сохранить изменения</div>
+                        </div> 
+                    </div>
+                <%}%>
+            </div>
+        <%}%>
+    </div>
+    <script src="js/admin.js"></script>
 </body>
 </html>

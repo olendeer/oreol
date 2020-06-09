@@ -2,6 +2,7 @@ html {
   font-size: 20px;
   font-family: "Manrope", sans-serif;
   width: 100vw;
+  height: 100vh;
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
@@ -10,13 +11,397 @@ header {
   height: 60px;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   background-color: #C3CEDB;
   align-items: center;
+  box-sizing: border-box;
+  padding: 0px 30px;
 }
 header a {
   color: #2B2E40;
   text-decoration: none;
+  font-size: 0.6rem;
+  font-weight: bold;
+  transition-duration: 0.3s;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+header a:hover {
+  color: #1235C4;
+}
+header a:not(:last-child) {
+  margin-right: 10px;
+}
+
+.content {
+  box-sizing: border-box;
+  padding: 20px 30px;
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+}
+.content .edit-header {
+  font-weight: bold;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.content .edit-block {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.content .edit-block .paragraph-header {
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.admin-main {
+  position: relative;
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  color: #2B2E40;
+  font-weight: 700;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  box-shadow: 0px 10px 20px rgba(18, 53, 196, 0.1);
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+  width: 165px;
+}
+.admin-main .admin-list-item-active {
+  background-color: #fff;
+  height: 40px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.admin-main img {
+  margin-top: 3px;
+  transition-duration: 0.3s;
+}
+.admin-main .admin-list {
+  width: 100%;
+  max-height: 300px;
+  overflow-y: scroll;
+  position: absolute;
+  z-index: 2;
+  background-color: #fff;
+  margin-top: 50px;
+  left: 0px;
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: 0px 10px 20px rgba(18, 53, 196, 0.1);
+  transition-duration: 0.2s;
+  padding: 5px 0px;
+}
+.admin-main .admin-list .admin-list-item {
+  height: 40px;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+  line-height: 1.05rem;
+  transition-duration: 0.3s;
+  color: #2B2E40;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.admin-main .admin-list .admin-list-item:hover {
+  color: #163391;
+  background: rgba(20, 175, 242, 0.5);
+}
+
+.admin-main-active .admin-list {
+  opacity: 1;
+  visibility: visible;
+}
+.admin-main-active img {
+  transform: rotateZ(180deg);
+}
+
+.admin-main .marks-list {
+  max-height: unset;
+  overflow-y: visible;
+}
+
+.active-edit-block {
+  font-size: 0.7rem;
+  display: inline-block;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+.active-edit-block span {
+  color: #1235C4;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.editing-element {
+  border-top: 1px solid #C3CEDB;
+  padding-top: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  transition-duration: 0.3s;
+  width: 100%;
+}
+
+.add-new-link, .add-new-sublink, .add-new-mark, .add-new-char {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 10px 20px rgba(18, 53, 196, 0.1);
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+.add-new-link:after, .add-new-sublink:after, .add-new-mark:after, .add-new-char:after {
+  content: "";
+  width: 10px;
+  height: 2px;
+  position: absolute;
+  background-color: #2B2E40;
+  transition-duration: 0.3s;
+}
+.add-new-link:before, .add-new-sublink:before, .add-new-mark:before, .add-new-char:before {
+  content: "";
+  height: 10px;
+  width: 2px;
+  position: absolute;
+  background-color: #2B2E40;
+  transition-duration: 0.3s;
+}
+.add-new-link:hover, .add-new-sublink:hover, .add-new-mark:hover, .add-new-char:hover {
+  background-color: #2B2E40;
+}
+.add-new-link:hover:after, .add-new-sublink:hover:after, .add-new-mark:hover:after, .add-new-char:hover:after {
+  background-color: #C3CEDB;
+}
+.add-new-link:hover:before, .add-new-sublink:hover:before, .add-new-mark:hover:before, .add-new-char:hover:before {
+  background-color: #C3CEDB;
+}
+
+.add-new-sublink {
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+.edit-item {
+  display: flex;
+  align-items: flex-start;
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+.edit-item .edit-item-header {
   font-size: 0.7rem;
   font-weight: bold;
+  margin-right: 20px;
+  color: #1235C4;
+}
+.edit-item .edit-item-content .info {
+  font-size: 0.7rem;
+}
+
+.edit-input-wrap {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.edit-input-wrap label {
+  font-size: 0.7rem;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.edit-input-wrap input {
+  border: none;
+  outline: none;
+  height: 40px;
+  box-shadow: 0px 10px 20px rgba(18, 53, 196, 0.1);
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 0px 20px;
+}
+.edit-input-wrap textarea {
+  border: none;
+  outline: none;
+  height: 100px;
+  width: 400px;
+  box-shadow: 0px 10px 20px rgba(18, 53, 196, 0.1);
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  resize: none;
+}
+.edit-input-wrap #chart {
+  min-width: 300px;
+}
+
+.adress-edit-item {
+  flex-direction: column;
+}
+.adress-edit-item .edit-item-header {
+  margin-bottom: 20px;
+}
+.adress-edit-item .edit-item-content .edit-input-wrap label {
+  width: 80px;
+}
+
+.marks-data {
+  margin-top: 20px;
+  width: 100%;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.marks-new {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.marks-new .edit-navigation {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+.marks-new .edit-input-wrap {
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+.marks-new .edit-input-wrap label {
+  width: 120px;
+}
+
+.product-new {
+  flex-direction: column;
+}
+
+.products-items {
+  width: 100%;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.product-item img {
+  margin-right: 20px;
+}
+
+.mark-item, .slide-item, .product-item {
+  box-sizing: border-box;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid rgba(195, 206, 219, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.mark-item .edit-input-wrap, .slide-item .edit-input-wrap, .product-item .edit-input-wrap {
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+.mark-item .edit-navigation, .slide-item .edit-navigation, .product-item .edit-navigation {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.img-data-certification {
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 20%;
+}
+.img-data-certification .img-data-wrap {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+.img-data-certification .img-data-wrap img {
+  width: 100%;
+}
+.img-data-certification .img-data-wrap input {
+  display: none;
+}
+.img-data-certification .img-data-wrap label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.content .edit-slider {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.edit-navigation {
+  display: flex;
+  transition-duration: 0.3s;
+}
+.edit-navigation .btn {
+  background-color: #C3CEDB;
+  padding: 10px 20px;
+  box-shadow: 0px 10px 20px rgba(18, 53, 196, 0.1);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+.edit-navigation .save {
+  margin-right: 10px;
+  color: #000;
+  text-decoration: none;
+}
+.edit-navigation .save:hover {
+  background-color: #1235C4;
+  color: #fff;
+}
+.edit-navigation .delete:hover {
+  background-color: #d12424;
+  color: #fff;
+}
+
+.product-data {
+  display: none;
+}
+
+.product-chars {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.product-chars .product-chars-header {
+  width: 100%;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #1235C4;
+}
+.product-chars span {
+  font-size: 0.6rem;
+  margin-bottom: 20px;
+}
+.product-chars .product-chars-item {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.product-chars .product-chars-item .edit-input-wrap label {
+  width: 200px;
 }
