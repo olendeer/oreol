@@ -127,8 +127,7 @@ document.querySelectorAll('.edit-navigation > .save-slide').forEach(element => {
             },
             body: JSON.stringify(data)
         })
-        console.log(data)
-        // window.location.href = '/admin/slider';
+        window.location.href = '/admin/slider';
     });
 });
 
@@ -146,8 +145,7 @@ if(createSlide){
             method: 'post',
             body: data
         })
-        console.log(data)
-        // window.location.href = '/admin/slider';
+        window.location.href = '/admin/slider';
     })
 }
 
