@@ -403,10 +403,12 @@ app.post('/saveLink', jsonParser, async (request, response) => {
 			new LinkItem(request.body).save();
 		}
 	})
+	response.json({ok: 'ok'});
 })
 
 app.post('/saveCharts', jsonParser, async (request, response) => {
 	await ChartsItem.updateOne({_id: request.body.id}, request.body);
+	response.json({ok: 'ok'});
 })
 let storage = multer.diskStorage({
 		destination: function (req, file, cb) {
@@ -441,6 +443,7 @@ app.post('/saveMark', jsonParser, async (request, response) => {
 			await MarkItem.updateOne({_id: request.body.id}, {$set : {title: request.body.title, name: request.body.name, categorie : request.body.categorie}});
 			break;
 	}
+	response.json({ok: 'ok'});
 })
 
 app.post('/createMark',  upload.single('image'), async (request, response) => {
@@ -453,10 +456,12 @@ app.post('/createMark',  upload.single('image'), async (request, response) => {
 		price : request.body.price,
 		categorie: request.body.categorie
 	}).save()
+	response.json({ok: 'ok'});
 })
 
 app.post('/deleteMark', jsonParser, async (request, response) => {
 	await MarkItem.deleteOne({_id: request.body.id})
+	response.json({ok: 'ok'});
 })
 
 app.post('/uploadPhotoSlide', upload.single('image'), async (request, response) => {
@@ -467,6 +472,7 @@ app.post('/uploadPhotoSlide', upload.single('image'), async (request, response) 
 });
 app.post('/saveSlide', jsonParser, async (request, response) => {
 	await SlideItem.updateOne({_id: request.body.id}, {$set : {url: request.body.url, name: request.body.name, price: request.body.price}})
+	response.json({ok: 'ok'});
 })
 
 app.post('/createSlide',  upload.single('image'), async (request, response) => {
@@ -476,11 +482,12 @@ app.post('/createSlide',  upload.single('image'), async (request, response) => {
 		price : request.body.price,
 		url: request.body.url
 	}).save()
-	console.log(request.body)
+	response.json({ok: 'ok'});
 })
 
 app.post('/deleteSlide', jsonParser, async (request, response) => {
 	await SlideItem.deleteOne({_id: request.body.id})
+	response.json({ok: 'ok'});
 })
 
 app.post('/uploadPhotoProduct', upload.single('image'), async (request, response) => {
@@ -541,10 +548,12 @@ app.post('/saveProduct', jsonParser, async (request, response) => {
 			solventMastika: request.body.solventMastika
 		}
 	});
+	response.json({ok: 'ok'});
 })
 
 app.post('/deleteProduct', jsonParser, async (request, response) => {
 	await ProductItem.deleteOne({_id: request.body.id})
+	response.json({ok: 'ok'});
 })
 
 

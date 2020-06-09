@@ -33,7 +33,9 @@ if(saveMain){
             },
             body: JSON.stringify(data)
         })
-        window.location.href = '/admin/main';
+        .then(() => {
+            window.location.href = '/admin/main';
+         })
     })
 }
 
@@ -67,7 +69,9 @@ if(saveCharts){
             },
             body: JSON.stringify(data)
         })
-        window.location.href = '/admin/charts';
+        .then(() => {
+            window.location.href = '/admin/charts';
+         })
     })
 }
 document.querySelectorAll('.edit-navigation > .save-mark').forEach(element => {
@@ -87,7 +91,9 @@ document.querySelectorAll('.edit-navigation > .save-mark').forEach(element => {
             },
             body: JSON.stringify(data)
         })
-        window.location.href = '/admin/marks';
+        .then(() => {
+            window.location.href = '/admin/marks';
+         })
     });
 });
 
@@ -108,7 +114,9 @@ if(createMark){
             method: 'post',
             body: data
         })
-        window.location.href = '/admin/marks';
+        .then(() => {
+            window.location.href = '/admin/marks';
+         })
     })
 }
 
@@ -127,7 +135,9 @@ document.querySelectorAll('.edit-navigation > .save-slide').forEach(element => {
             },
             body: JSON.stringify(data)
         })
-        window.location.href = '/admin/slider';
+        .then(() => {
+            window.location.href = '/admin/slider';
+         })
     });
 });
 
@@ -145,7 +155,9 @@ if(createSlide){
             method: 'post',
             body: data
         })
-        window.location.href = '/admin/slider';
+        .then(() => {
+           window.location.href = '/admin/slider';
+        })
     })
 }
 
@@ -171,7 +183,9 @@ document.querySelectorAll('.edit-navigation > .delete-mark').forEach(element => 
             },
             body: JSON.stringify({id : this.parentElement.parentElement.getAttribute('id')})
         })
-        window.location.href = '/admin/marks';
+        .then(() => {
+            window.location.href = '/admin/marks';
+        })
     })
 });
 
@@ -184,7 +198,10 @@ document.querySelectorAll('.edit-navigation > .delete-slide').forEach(element =>
             },
             body: JSON.stringify({id : this.parentElement.parentElement.getAttribute('id')})
         })
-        window.location.href = '/admin/slider';
+        .then(() => {
+            window.location.href = '/admin/slider';
+        })
+       
     })
 });
 
@@ -233,7 +250,9 @@ document.querySelectorAll('.edit-navigation > .save-product').forEach(element =>
             },
             body: JSON.stringify(data)
         })
-        window.location.href = '/admin/products';
+        .then(() => {
+            window.location.href = '/admin/products';
+        })
     });
 });
 
@@ -290,7 +309,10 @@ document.querySelectorAll('.edit-navigation > .delete-product').forEach(element 
             },
             body: JSON.stringify({id : this.parentElement.parentElement.getAttribute('id')})
         })
-        window.location.href = '/admin/products';
+        .then(() => {
+            window.location.href = '/admin/products';
+        })
+       
     })
 });
 
