@@ -282,7 +282,7 @@ let Mark = mongoose.Schema({
 	imgs : Array,
 	title: String,
 	price  : String,
-
+	categorie: String
 })
 const MarkItem = mongoose.model('Mark', Mark);
 
@@ -438,7 +438,7 @@ app.post('/saveMark', jsonParser, async (request, response) => {
 			await MarkItem.updateOne({_id: request.body.id}, {$set : {title: request.body.title, name: request.body.name, price: request.body.price}});
 			break;
 		case 'faq':
-			await MarkItem.updateOne({_id: request.body.id}, {$set : {title: request.body.title, name: request.body.name, price: request.body.price, categorie : request.body.categorie}});
+			await MarkItem.updateOne({_id: request.body.id}, {$set : {title: request.body.title, name: request.body.name, categorie : request.body.categorie}});
 			break;
 	}
 })
