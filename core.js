@@ -461,16 +461,12 @@ app.post('/deleteMark', jsonParser, async (request, response) => {
 
 app.post('/uploadPhotoSlide', upload.single('image'), async (request, response) => {
 	await SlideItem.updateOne({_id : request.body.id}, {$set : {img: 'img/custom/' + request.file.filename}})	
-	.then(r => {
-
-		console.log(r)
-	});
 	response.json({
 		url : 'img/custom/' + request.file.filename
 	});
 });
 app.post('/saveSlide', jsonParser, async (request, response) => {
-
+	console.log(request.body)
 	await SlideItem.updateOne({_id: request.body.id}, {$set : {url: request.body.url, name: request.body.name, price: request.body.price}})
 })
 

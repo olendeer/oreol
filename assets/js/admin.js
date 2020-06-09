@@ -127,7 +127,8 @@ document.querySelectorAll('.edit-navigation > .save-slide').forEach(element => {
             },
             body: JSON.stringify(data)
         })
-        window.location.href = '/admin/slider';
+        console.log(data)
+        // window.location.href = '/admin/slider';
     });
 });
 
