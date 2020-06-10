@@ -10,6 +10,8 @@ body {
   opacity: 0;
   position: relative;
   overflow-x: hidden;
+  transition-duration: 0.3s;
+  transition-property: opacity;
 }
 
 header {
