@@ -1,3 +1,6 @@
+window.addEventListener('load', function(){
+    document.querySelector('body').style.opacity = '1';
+})
 document.querySelectorAll('.submenu-btn').forEach(element => {
     element.addEventListener('click', function(){
         this.classList.toggle('submenu-btn-active')
