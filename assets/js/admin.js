@@ -14,6 +14,26 @@ document.querySelectorAll('.admin-list-item').forEach(element => {
         this.parentElement.previousElementSibling.setAttribute('type', this.getAttribute('type'))
     })
 })
+
+document.querySelectorAll('.edit-navigation > .save-description').forEach(element => {
+    element.addEventListener('click', function(){
+        let data = {
+            id : this.parentElement.parentElement.getAttribute('id'),
+            description : this.parentElement.parentElement.querySelector('.title').value,
+        }
+        fetch('/saveDescription', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            window.location.href = '/admin/description';
+         })
+    })
+})
+
 let saveMain = document.querySelector('.edit-navigation > .save-main');
 if(saveMain){
     saveMain.addEventListener('click', function(){

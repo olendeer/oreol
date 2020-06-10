@@ -845,6 +845,25 @@
                     </div>
                 <%}%>
             </div>
+        <%}else if(url == 'description'){%>
+            <div class="edit-header">Редактирование описаний</div>
+            <div class="edit-block">
+                <%for(let i = 0; i < data.length; i++){%>
+                    <div class="mark-item description-item" id="<%=data[i]._id%>">
+                        <div class="edit-input-wrap">
+                            <label for="name"><%=data[i].name%></label>
+                            <!-- <input type="text" class="name" value="<%=data[i].name%>"> -->
+                        </div>
+                        <div class="edit-input-wrap">
+                            <label for="title">Описание</label>
+                            <textarea name="" class="title"><%=data[i].description%></textarea>
+                        </div>
+                        <div class="edit-navigation">
+                            <div class="save save-description btn">Сохранить</div>
+                        </div>
+                    </div>
+                <%}%>
+            </div>
         <%}%>
     </div>
     <script src="js/admin.js"></script>

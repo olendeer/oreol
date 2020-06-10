@@ -21,9 +21,6 @@ async function start(){
 	}
 }
 
-// app.post('/editImages', upload.any(), (request, response) => {
-// 	response.statusCode(200);
-// });
 start();
 
 app.set('view engine', 'ejs');
@@ -39,17 +36,19 @@ app.use('/admin/products/:section/:id', express.static('assets'));
 app.get('/', async (request, response) => {
 	let links = LinkItem.find();
 	let charts = ChartsItem.findOne();
-	let slides = SlideItem.find()
-	Promise.all([links, charts, slides]).then(data => {
-		response.render('index', {links : data[0], charts : data[1], slides: data[2]});
+	let slides = SlideItem.find();
+	let interesting = ProductItem.find().limit(4)
+	Promise.all([links, charts, slides, interesting]).then(data => {
+		response.render('index', {links : data[0], charts : data[1], slides: data[2], interesting: data[3]});
 	})
 });
 
 app.get('/catalog', async (request, response) => {
 	let links = LinkItem.find();
 	let charts = ChartsItem.findOne();
-	Promise.all([links, charts]).then(data => {
-		response.render('catalog', {links : data[0], charts : data[1]});
+	let description = await DescriptionItem.findOne({name : 'Каталог'}).then(data => data.description)
+	Promise.all([links, charts, description]).then(data => {
+		response.render('catalog', {links : data[0], charts : data[1], description : data[2]});
 	})
 })
 
@@ -106,36 +105,48 @@ app.get('/catalog/:categorie', async (request, response) => {
 		filter: true,
 		filterData: [],
 		description: '',
-		countItem: 0,
+		countItem: Array.from(await ProductItem.find({categorie: request.params.categorie})).length,
 		countPage: 1,
 		numberPage: 1,
 		calculator: false,
 		calculatorData: {},
 		categorie: request.params.categorie
-	}; 
+	};
+	if(request.query.page){
+		if(request.query.page <= 0){
+			data.numberPage = 1;
+		}
+		else{
+			data.numberPage = +request.query.page;
+		}
+	}
+	data.countPage = Math.ceil(data.countItem / 12);
+	if(request.query.page > data.countPage){
+		data.numberPage = data.countPage;
+	}
 	if(request.params.categorie == 'evroruberoid'){
 		data.page = 'Еврорубероид'
-		data.description = 'Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего, судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, - тогда, дорогой друг, меня часто томит мысль: "Ах! Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога!"'
+		data.description = await DescriptionItem.findOne({name : 'Еврорубероид'}).then(data => data.description)
 		data.filterData = filters[0];
 	}
 	else if(request.params.categorie == 'mastika'){
 		data.page = 'Мастики, праймеры'
-		data.description = 'Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего, судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, - тогда, дорогой друг, меня часто томит мысль: "Ах! Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога!"'
+		data.description = await DescriptionItem.findOne({name : 'Мастики, праймеры'}).then(data => data.description)
 		data.filterData = filters[1];
 	}
 	else if(request.params.categorie == 'germetik'){
 		data.page = 'Герметики'
 		data.filter = false
-		data.description = 'Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего, судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, - тогда, дорогой друг, меня часто томит мысль: "Ах! Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога!"'
+		data.description = await DescriptionItem.findOne({name : 'Герметики'}).then(data => data.description)
 	}
 	else if(request.params.categorie == 'podkladochnyi-kover'){
 		data.page = 'Подкладочный ковер'
 		data.filter = false
-		data.description = 'Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего, судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, - тогда, дорогой друг, меня часто томит мысль: "Ах! Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога!"'
+		data.description =  await DescriptionItem.findOne({name : 'Подкладочный ковер'}).then(data => data.description)
 	}
 	else if(request.params.categorie == 'shlakoblock'){
 		data.page = 'Шлакоблок'
-		data.description = 'Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего, судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, - тогда, дорогой друг, меня часто томит мысль: "Ах! Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога!"'
+		data.description = await DescriptionItem.findOne({name : 'Шлакоблоки'}).then(data => data.description)
 		data.calculator = true;
 		data.filter = false;
 		data.calculatorData.title = 'Расчитать примерное количество и стоимость шлакоблоков можно в нашем';
@@ -147,9 +158,8 @@ app.get('/catalog/:categorie', async (request, response) => {
 	}
 	let links = LinkItem.find();
 	let charts = ChartsItem.findOne();
-	let products = ProductItem.find({categorie: request.params.categorie})
+	let products = ProductItem.find({categorie: request.params.categorie}).sort({ $natural: -1 }).skip(data.numberPage * 12 - 12).limit(12)
 	Promise.all([links, charts, products]).then(items => {
-		data.countItem = items[2].length;
 		response.render('categorie', {data: data, links : items[0], charts : items[1], products: items[2]});
 	});
 })
@@ -158,8 +168,9 @@ app.get('/certification', async (request, response) => {
 	let links = LinkItem.find();
 	let charts = ChartsItem.findOne();
 	let certificats = MarkItem.find({type : 'certification'})
-	Promise.all([links, charts, certificats]).then(items => {
-		response.render('certification', { links : items[0], charts : items[1], certificats : items[2]});
+	let description =  await DescriptionItem.findOne({name : 'Сертификаты соответствия'}).then(data => data.description)
+	Promise.all([links, charts, certificats, description]).then(items => {
+		response.render('certification', { links : items[0], charts : items[1], certificats : items[2], description: items[3]});
 	});
 })
 app.get('/about/articles', async (request, response) => {
@@ -171,6 +182,7 @@ app.get('/about/articles', async (request, response) => {
 	let links = LinkItem.find();
 	let charts = ChartsItem.findOne();
 	Promise.all([links, charts]).then(items => {
+		console.log(data)
 		response.render('articles', {data: data, links : items[0], charts : items[1]});
 	});
 })
@@ -244,7 +256,7 @@ app.get('/delivery', async (request, response) => {
 app.get('/calculator', async (request, response) => {
 	let data = {}
 	data.page = 'Шлакоблоки'
-	data.description = 'Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего, судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, - тогда, дорогой друг, меня часто томит мысль: "Ах! Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живет во мне, запечатлеть отражение моей души, как душа моя - отражение предвечного бога!"'
+	data.description = await DescriptionItem.findOne({name : 'Калькулятор'}).then(data => data.description)
 	let links = LinkItem.find();
 	let charts = ChartsItem.findOne();
 	Promise.all([links, charts]).then(items => {
@@ -318,6 +330,12 @@ let Product = mongoose.Schema({
 })
 const ProductItem = mongoose.model('Product', Product)
 
+let Description = mongoose.Schema({
+	description : String,
+	name : String,
+})
+const DescriptionItem = mongoose.model('Description', Description);
+
 app.get('/admin', (request, response) => {
 	response.redirect('/admin/main')
 })
@@ -339,6 +357,9 @@ app.get('/admin/:url', async (request, response) => {
 			break;
 		case 'products':
 			data = undefined;
+			break;
+		case 'description':
+			data = await DescriptionItem.find();
 			break;
 	}
 	response.render('admin/admin', {url : request.params.url, data: data, section: undefined, product: undefined});
@@ -396,6 +417,10 @@ app.get('/admin/products/:section/:id', async (request, response) => {
 	response.render('admin/admin', {url : 'products', section: undefined, product: await ProductItem.findOne({_id: request.params.id})});
 })
 
+app.post('/saveDescription', jsonParser, async (request, response) => {
+	await DescriptionItem.updateOne({_id : request.body.id}, {description : request.body.description})
+	response.json({ok: 'ok'});
+})
 
 app.post('/saveLink', jsonParser, async (request, response) => {
 	await LinkItem.updateOne({_id : request.body.id}, request.body,  (error, coincidence) => {

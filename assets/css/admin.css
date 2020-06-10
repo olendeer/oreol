@@ -405,3 +405,7 @@ header a:not(:last-child) {
 .product-chars .product-chars-item .edit-input-wrap label {
   width: 200px;
 }
+
+.description-item {
+  width: 100%;
+}
