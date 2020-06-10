@@ -327,6 +327,7 @@ header a:not(:last-child) {
 .img-data-certification .img-data-wrap {
   display: flex;
   width: 100%;
+  min-height: 20px;
   position: relative;
 }
 .img-data-certification .img-data-wrap img {
