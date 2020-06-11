@@ -413,7 +413,7 @@
 
 .description {
   width: 100%;
-  height: 365px;
+  height: auto;
   padding: 40px 0px 100px;
   box-sizing: border-box;
   background-color: #f1f1f1;
@@ -473,7 +473,7 @@
   .filter:before {
     content: "";
     position: absolute;
-    width: 600px;
+    width: 800px;
     height: 80px;
     bottom: -80px;
     z-index: 4;
@@ -485,9 +485,9 @@
     visibility: hidden;
   }
   .filter .mobile-filter-btn {
-    position: absolute;
+    position: fixed;
     top: 195px;
-    right: -31px;
+    left: -1px;
     width: 32px;
     height: 32px;
     z-index: 5;
@@ -495,6 +495,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition-duration: 0.3s;
   }
   .filter .filter-title {
     font-size: 0.7rem;
@@ -535,6 +536,9 @@
 
   .filter-active {
     left: 0px;
+  }
+  .filter-active .mobile-filter-btn {
+    left: 234px;
   }
   .filter-active:after, .filter-active:before {
     opacity: 0.5;

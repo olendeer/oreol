@@ -27,7 +27,7 @@ document.querySelector('.close-modal').addEventListener('click', function(){
     })
 })
 
-document.querySelectorAll('.call, .certificate-btn, .mobile-btn-phone').forEach(element => {
+document.querySelectorAll('.call, .certificate-btn, .mobile-btn-phone, .buy-btn').forEach(element => {
     element.addEventListener('click', function(){
         document.querySelector('.call-modal').classList.toggle('modal-active');
         if(this.classList.contains('certificate-btn')){

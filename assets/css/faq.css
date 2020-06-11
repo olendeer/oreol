@@ -98,6 +98,9 @@
   opacity: 0;
   transition-duration: 0.3s;
 }
+.content .content-body .faq-item .faq-questions .question-item .question-answer pre {
+  white-space: pre-wrap;
+}
 .content .content-body .faq-item .faq-questions .question-item:not(:last-child) {
   margin-bottom: 20px;
 }

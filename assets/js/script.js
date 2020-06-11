@@ -51,3 +51,12 @@ document.querySelectorAll('.checkbox-item > *').forEach(element => {
     })
 })
 
+window.addEventListener('scroll', function(){
+    if((document.querySelector('.filter').clientHeight - (document.querySelector('.mobile-filter-btn').getBoundingClientRect().top + this.pageYOffset + 32)) < 0){
+        document.querySelector('.mobile-filter-btn').style.visibility = 'hidden'
+    }
+    else{
+        document.querySelector('.mobile-filter-btn').style.visibility = 'visible'
+    }
+
+})

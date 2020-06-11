@@ -607,7 +607,7 @@ app.get('/:categorie/:product', async (request, response) => {
 	let links = LinkItem.find();
 	let charts = ChartsItem.findOne();
 	let product = ProductItem.findOne({_id : request.params.product})
-	let interesting = ProductItem.find({_id: {$ne: request.params.product}, categorie: request.params.categorie}).limit(4)
+	let interesting = ProductItem.find({_id: {$ne: request.params.product}, categorie: request.params.categorie}).limit(4);
 	data.categorieLink = request.params.categorie;
 	Promise.all([links, charts, product, interesting]).then(items => {
 		response.render('product', {data: data, links : items[0], charts : items[1], product: items[2], interesting: items[3]});

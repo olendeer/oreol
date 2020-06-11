@@ -134,6 +134,7 @@
   line-height: 1.05rem;
   color: #ffffff;
   margin-bottom: 25px;
+  cursor: pointer;
 }
 .product-preview .product-info .product-nav .product-btns .about-btn {
   text-decoration: none;
@@ -157,7 +158,6 @@
 .calculator {
   width: 1180px;
   box-sizing: border-box;
-  padding-right: 300px;
   margin: 0 auto;
   margin-top: 40px;
   margin-bottom: 50px;
@@ -390,6 +390,12 @@
   width: 580px;
   font-size: 0.7rem;
   line-height: 1.05rem;
+}
+.product-data .product-description .description {
+  white-space: pre-wrap;
+}
+.product-data .product-description .description pre {
+  white-space: pre-wrap;
 }
 
 .comments {

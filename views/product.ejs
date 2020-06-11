@@ -128,17 +128,79 @@
         <div class="product-chars">
             <div class="product-header">Характеристики</div>
             <div class="chars">
-                <%for(let i = 0; i < product.characteristics.length; i++){%>
+                <%if(product.classEvroruberoid != 'Не выбрано' && product.classEvroruberoid != ''){%>
                     <div class="chars-item">
-                        <div class="chars-name"><%=product.characteristics[i].name%>:</div>
-                        <div class="chars-val"><%=product.characteristics[i].value%></div>
+                        <div class="chars-name">Класс:</div>
+                        <div class="chars-val"><%=product.classEvroruberoid%></div>
                     </div>
+                <%}%>
+                <%if(product.typeEvroruberoid != 'Не выбрано' && product.typeEvroruberoid != ''){%>
+                    <div class="chars-item">
+                        <div class="chars-name">Тип:</div>
+                        <div class="chars-val"><%=product.typeEvroruberoid%></div>
+                    </div>
+                <%}%>
+                <%if(product.brendEvroruberoid != 'Не выбрано' && product.brendEvroruberoid != ''){%>
+                    <div class="chars-item">
+                        <div class="chars-name">Бренд:</div>
+                        <div class="chars-val"><%=product.brendEvroruberoid%></div>
+                    </div>
+                <%}%>
+                <%if(product.weightEvroruberoid != 'Не выбрано' && product.weightEvroruberoid != ''){%>
+                    <div class="chars-item">
+                        <div class="chars-name">Вес кг/м2:</div>
+                        <div class="chars-val"><%=product.weightEvroruberoid%></div>
+                    </div>
+                <%}%>
+                <%if(product.baseEvroruberoid != 'Не выбрано' && product.baseEvroruberoid != ''){%>
+                    <div class="chars-item">
+                        <div class="chars-name">Основа:</div>
+                        <div class="chars-val"><%=product.baseEvroruberoid%></div>
+                    </div>
+                <%}%>
+                <%if(product.widthEvroruberoid != 'Не выбрано' && product.widthEvroruberoid != ''){%>
+                    <div class="chars-item">
+                        <div class="chars-name">Длина руллона, м:</div>
+                        <div class="chars-val"><%=product.widthEvroruberoid%></div>
+                    </div>
+                <%}%>
+                <%if(product.marksEvroruberoid != 'Не выбрано' && product.marksEvroruberoid != ''){%>
+                    <div class="chars-item">
+                        <div class="chars-name">Маркировка:</div>
+                        <div class="chars-val"><%=product.marksEvroruberoid%></div>
+                    </div>
+                <%}%>
+                <%if(product.typeMastika != 'Не выбрано' && product.typeMastika != ''){%>
+                    <div class="chars-item">
+                        <div class="chars-name">Продукция:</div>
+                        <div class="chars-val"><%=product.typeMastika%></div>
+                    </div>
+                <%}%>
+                <%if(product.areaMastika != 'Не выбрано' && product.areaMastika != ''){%>
+                    <div class="chars-item">
+                        <div class="chars-name">Сфера применения :</div>
+                        <div class="chars-val"><%=product.areaMastika%></div>
+                    </div>
+                <%}%>
+                <%if(product.solventMastika != 'Не выбрано' && product.solventMastika != ''){%>
+                    <div class="chars-item">
+                        <div class="chars-name">Тип растворителя:</div>
+                        <div class="chars-val"><%=product.solventMastika%></div>
+                    </div>
+                <%}%>
+                <%for(let i = 0; i < product.characteristics.length; i++){%>
+                    <%if(product.characteristics[i].name != ''){%>
+                        <div class="chars-item">
+                            <div class="chars-name"><%=product.characteristics[i].name%>:</div>
+                            <div class="chars-val"><%=product.characteristics[i].value%></div>
+                        </div>
+                    <%}%>
                 <%}%>
             </div>
         </div>
         <div class="product-description">
             <div class="product-header">Описание</div>
-            <div class="description"><%-product.description%></div>
+            <div class="description"><pre><%-product.description%></pre></div>
         </div>
     </section>
     <section class="comments">

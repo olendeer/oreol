@@ -70,7 +70,7 @@
 .description {
   width: 1180px;
   margin: 0 auto;
-  height: 335px;
+  height: auto;
   padding: 40px;
   box-sizing: border-box;
   background-color: #f1f1f1;
