@@ -661,4 +661,10 @@
     font-size: 0.6rem;
     line-height: 0.9rem;
   }
+  .description .wrap-description .description-text strong {
+    font-weight: 700;
+  }
+  .description .wrap-description .description-text pre {
+    white-space: pre-wrap;
+  }
 }

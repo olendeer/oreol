@@ -128,6 +128,12 @@
   color: #2B2E40;
   font-weight: 300;
 }
+.description .wrap-description .description-text strong {
+  font-weight: 700;
+}
+.description .wrap-description .description-text pre {
+  white-space: pre-wrap;
+}
 
 @media screen and (max-width: 600px) {
   .breadcrumbs {

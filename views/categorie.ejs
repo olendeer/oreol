@@ -149,7 +149,7 @@
     <section class="description">
         <div class="wrap-description">
             <div class="description-header"><%=data.page%></div>
-            <div class="description-text"><%=data.description%></div>
+            <div class="description-text"><pre><%-data.description%></pre></div>
         </div>
     </section>
     <%- include('parts/footer', {links: links, charts: charts})%>
