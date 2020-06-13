@@ -180,6 +180,10 @@
   top: 38px;
   left: 0;
 }
+.content .content-body .input-item-small span {
+  display: flex;
+  align-items: center;
+}
 .content .content-body .calculate-btn {
   border: 1px solid #14AFF2;
   box-sizing: border-box;

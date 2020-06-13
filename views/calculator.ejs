@@ -26,10 +26,13 @@
                 <div class="input-item">
                     <div class="input-header">Тип шлакоблока</div>
                     <div class="selected-item">
-                        <span class="submenu-btn"><span>Шлакоблок стеновой 390*190*188</span>
+                        <span class="submenu-btn type"><span class="active-list-item-type" data="<%=products[0].price%>"><%=products[0].name%></span>
                             <div class="menu-list">
-                                <div class="menu-list-item new-submenu-item">Шлакоблок стеновой 390*190*188</div>
-                                <div class="menu-list-item new-submenu-item">Шлакоблок перегородочный 390*90*188</div>
+                                <%for(let i = 0; i < products.length; i++){%>
+                                    <%if(products[i].name != ''){%>
+                                        <div class="menu-list-item new-submenu-item" data="<%=products[i].price%>"><%=products[i].name%></div>
+                                    <%}%>
+                                <%}%>
                             </div>
                             <img src="img/arrow.svg" alt="">
                         </span>
@@ -38,30 +41,30 @@
                 <div class="input-item input-item-small">
                     <div class="input-header">Длина всех стен </div>
                     <div class="input-title">(периметр, м)</div>
-                    <input type="text">
+                    <input type="text" name="perimetr">
                 </div>
                 <div class="input-item input-item-small">
                     <div class="input-header">Выстота стены</div>
                     <div class="input-title">(м)</div>
-                    <input type="text">
+                    <input type="text" name="heigth">
                 </div>
                 <div class="input-item input-item-small">
                     <div class="input-header">Толщина стены</div>
-                    <span class="submenu-btn"><span>0,19 - (пол блока)</span>
+                    <span class="submenu-btn block"><span data="0.19" class="active-list-item-block">0,19 - (пол блока)</span>
                         <div class="menu-list">
-                            <div class="menu-list-item new-submenu-item">0,19 - (пол стенового блока)</div>
-                            <div class="menu-list-item new-submenu-item">0,39 - (один стеновой блок)</div>
-                            <div class="menu-list-item new-submenu-item">0,09 - (перегородочный)</div>
+                            <div class="menu-list-item new-submenu-item" data="0.19">0,19 - (пол стенового блока)</div>
+                            <div class="menu-list-item new-submenu-item" data="0.39">0,39 - (один стеновой блок)</div>
+                            <div class="menu-list-item new-submenu-item" data="0.09">0,09 - (перегородочный)</div>
                         </div>
                         <img src="img/arrow.svg" alt="">
                     </span>
                 </div>
                 <div class="input-item input-item-small">
                     <div class="input-header">Тощина шва раствора</div>
-                    <span class="submenu-btn"><span>10</span>
+                    <span class="submenu-btn weight"><span data="0.01" class="active-list-item-weight">10</span>
                         <div class="menu-list">
-                            <div class="menu-list-item new-submenu-item">10</div>
-                            <div class="menu-list-item new-submenu-item">15</div>
+                            <div class="menu-list-item new-submenu-item" data="0.01">10</div>
+                            <div class="menu-list-item new-submenu-item" data="0.015">15</div>
                         </div>
                         <img src="img/arrow.svg" alt="">
                     </span>
@@ -72,11 +75,11 @@
                 <div class="calculator-header">Результат</div>
                 <div class="input-item input-item-small">
                     <div class="input-header">Количество шлакоблоков</div>
-                    <span></span>
+                    <span class="count-blocks">0</span>
                 </div>
                 <div class="input-item input-item-small">
-                    <div class="input-header">Цена за 256 блоков</div>
-                    <span></span>
+                    <div class="input-header input-header-price">Цена за 0 блоков</div>
+                    <span class="count-price">0 грн</span>
                 </div>
                 <div class="order-btn">Заказать</div>
                 <img src="img/shlakobloki-calc.png" alt="">
@@ -91,5 +94,6 @@
     </section>
     <%- include('parts/footer', {links: links, charts: charts})%>
     <script src="js/modal.js"></script>
+    <script src="js/calculator.js"></script>
 </body>
 </html>

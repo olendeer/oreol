@@ -259,8 +259,9 @@ app.get('/calculator', async (request, response) => {
 	data.description = await DescriptionItem.findOne({name : 'Калькулятор'}).then(data => data.description)
 	let links = LinkItem.find();
 	let charts = ChartsItem.findOne();
-	Promise.all([links, charts]).then(items => {
-		response.render('calculator',{ data: data, links : items[0], charts : items[1]});
+	let products = ProductItem.find({categorie: 'shlakoblock'})
+	Promise.all([links, charts, products]).then(items => {
+		response.render('calculator',{ data: data, links : items[0], charts : items[1], products: items[2]});
 	});
 })
 
