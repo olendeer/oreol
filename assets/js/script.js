@@ -108,8 +108,12 @@ function makeQuery(operation, element){
 function renderProducts(products){
     let productsContainer = document.querySelector('.filter-items');
     productsContainer.innerHTML = '';
-    if(document.querySelector('.filter-items-navigation')){
+    if(products.length <= 12){
         document.querySelector('.filter-items-navigation').style.display = 'none'
+    }
+    else{
+        products = products.slice(0, 12)
+        document.querySelector('.filter-items-navigation').style.display = 'flex'
     }
     products.forEach(product => {
         let newProduct = templateProduct.cloneNode(true);
@@ -136,6 +140,10 @@ function renderProducts(products){
         newProduct.querySelector('.about-product').setAttribute('href', '/' + product.categorie + '/' + product._id)
         productsContainer.append(newProduct)
     })
+    if(window.innerWidth > 600){
+        let anchor = document.querySelector('.description').getBoundingClientRect().top + pageYOffset;
+        document.querySelector('.filter').style.minHeight = (+anchor - 160) + 'px'
+    }
 }
 
 function execQuery(query, sort){
@@ -148,6 +156,6 @@ function execQuery(query, sort){
     })
     .then(products => products.text())
     .then(products => {
-        renderProducts(JSON.parse(products).slice(0, 12))
+        renderProducts(JSON.parse(products))
     })
 }

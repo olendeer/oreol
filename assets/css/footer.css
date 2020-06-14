@@ -98,6 +98,7 @@ footer .footer-wrap .logo-item .footer-phone {
   line-height: 1.05rem;
   color: #fff;
   font-weight: 700;
+  -webkit-appearance: none;
 }
 footer .footer-wrap .logo-item .footer-phone:not(:last-child) {
   margin-bottom: 20px;

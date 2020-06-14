@@ -40,7 +40,6 @@ app.get('/', async (request, response) => {
 	let slides = SlideItem.find();
 	let interesting = ProductItem.find({categorie: {$ne: 'null'}}).limit(4)
 	Promise.all([links, charts, slides, interesting]).then(data => {
-		console.log(data[3])
 		response.render('index', {links : data[0], charts : data[1], slides: data[2], interesting: data[3]});
 	})
 });
@@ -170,7 +169,6 @@ app.get('/catalog/:categorie', async (request, response) => {
 	}
 	let links = LinkItem.find();
 	let charts = ChartsItem.findOne();
-	console.log()
 	let products = ProductItem.find({categorie: request.params.categorie}).sort({ $natural: -1 }).skip(data.numberPage * 12 - 12).limit(12)
 	Promise.all([links, charts, products]).then(items => {
 		response.render('categorie', {data: data, links : items[0], charts : items[1], products: items[2]});
@@ -195,7 +193,6 @@ app.get('/about/articles', async (request, response) => {
 	let links = LinkItem.find();
 	let charts = ChartsItem.findOne();
 	Promise.all([links, charts]).then(items => {
-		console.log(data)
 		response.render('articles', {data: data, links : items[0], charts : items[1]});
 	});
 })
