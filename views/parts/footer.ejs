@@ -15,10 +15,10 @@
                 </svg>
                 <div class="footer-title">Производственно-кровельная компания</div>
             </a>
-            <div class="footer-chart" ><%=charts.chart%></div>
-            <div class="footer-phone" style="color: #ffffff; text-decoration: none;pointer-events: none;"><%=charts.phone1%></div>
-            <div class="footer-phone" style="color: #ffffff; text-decoration: none;pointer-events: none;"><%=charts.phone2%></div>
-            <div class="footer-phone" style="color: #ffffff; text-decoration: none;pointer-events: none;"><%=charts.phone3%></div> 
+            <div class="footer-chart"><%=charts.chart%></div>
+            <a href="tel:<%=charts.phone1%>" class="footer-phone"><%=charts.phone1%></a>
+            <a href="tel:<%=charts.phone2%>" class="footer-phone"><%=charts.phone2%></a>
+            <a href="tel:<%=charts.phone3%>" class="footer-phone"><%=charts.phone3%></a> 
         </div>
         <%for(let i = 0; i < links.length; i++){%>
             <%if(links[i].sublink == 'Да'){%>
