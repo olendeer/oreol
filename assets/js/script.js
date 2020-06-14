@@ -20,6 +20,7 @@ document.querySelectorAll('.checkbox-item > *').forEach(element => {
         if(this.parentElement.classList.contains('checkbox-item-active')){
             let newFilter = document.createElement('div');
             newFilter.classList.add('active-filter-item')
+            newFilter.setAttribute('filter', this.parentElement.parentElement.getAttribute('filter'))
             let newFilterText = document.createElement('span');
             newFilterText.textContent = this.parentElement.querySelector('.label').textContent
             newFilter.append(newFilterText)
@@ -30,17 +31,22 @@ document.querySelectorAll('.checkbox-item > *').forEach(element => {
             removeFilter2.classList.add('close2');
             newFilter.append(removeFilter2)
             document.querySelector('.active-filters').append(newFilter);
+            makeQuery('add', this)
         }
         else{
             document.querySelectorAll('.active-filter-item').forEach(element => {
                 if(element.textContent == this.parentElement.querySelector('.label').textContent){
                     element.remove();
+                    makeQuery('remove', element)
                 }
             })
         }
         document.querySelectorAll('.active-filter-item > .close1, .active-filter-item > .close2').forEach(element => {
-            element.addEventListener('click', function(){
+            element.addEventListener('click', function(event){
+                event.stopPropagation()
+                event.stopImmediatePropagation()
                 this.parentElement.remove();
+                makeQuery('remove', this.parentElement)
                 document.querySelectorAll('.checkbox-item-active > .label').forEach(checkbox => {
                     if(checkbox.textContent == this.parentElement.querySelector('span').textContent){
                         checkbox.parentElement.classList.remove('checkbox-item-active')
@@ -48,6 +54,22 @@ document.querySelectorAll('.checkbox-item > *').forEach(element => {
                 })
             })
         });
+    })
+})
+
+document.querySelectorAll('.sort-list-item').forEach(item => {
+    item.addEventListener('click', function(){
+        if(item.textContent == 'По популярности'){
+            sort = {
+                rating : -1
+            }
+        }
+        else if(item.textContent == 'По цене'){
+            sort = {
+                price : 1
+            }
+        }
+        execQuery(query, sort)
     })
 })
 
@@ -60,3 +82,70 @@ window.addEventListener('scroll', function(){
     }
 
 })
+let query = {};
+let sort = {};
+let templateProduct = document.querySelector('.preview-item').cloneNode(true)
+function makeQuery(operation, element){
+    query.categorie = document.querySelector('.filter').getAttribute('categorie')
+    if(operation == 'add'){
+        let filterName = element.parentElement.parentElement.getAttribute('filter');
+        if(query[filterName] == undefined){
+            query[filterName] = {$in: [element.parentElement.querySelector('.label').textContent]}
+        }else{
+            query[filterName].$in.push(element.parentElement.querySelector('.label').textContent)
+        }
+    }
+    else if(operation == 'remove'){
+        let filterName = element.getAttribute('filter');
+        query[filterName].$in.splice(query[filterName].$in.indexOf(element.querySelector('span').textContent), 1)
+        if(query[filterName].$in.length == 0){
+            delete query[filterName]
+        }
+    }
+
+    execQuery(query, sort)
+}
+function renderProducts(products){
+    let productsContainer = document.querySelector('.filter-items');
+    productsContainer.innerHTML = '';
+    document.querySelector('.filter-items-navigation').style.display = 'none';
+    products.forEach(product => {
+        let newProduct = templateProduct.cloneNode(true);
+        newProduct.querySelectorAll('.sale, .new').forEach(label => {
+            label.remove()
+        })
+        if(product.label == 'Акция'){
+            let label = document.createElement('div')
+            label.classList.add('sale')
+            label.textContent = 'Акция'
+            newProduct.querySelector('.wrap-photo').append(label)
+        }
+        else if(product.label == 'Новинка'){
+            let label = document.createElement('div')
+            label.classList.add('new')
+            label.textContent = 'Новинка'
+            newProduct.querySelector('.wrap-photo').append(label)
+        }
+        newProduct.querySelector('.wrap-photo > img').setAttribute('src', product.img)
+        newProduct.querySelector('h3').textContent = product.name;
+        newProduct.querySelector('.item-price').textContent = product.price;
+        newProduct.querySelector('.item-count').textContent = product.typePrice;
+        newProduct.querySelector('.rating-count').textContent = product.rating;
+        newProduct.querySelector('a').setAttribute('href', '/' + product.categorie + '/' + product._id)
+        productsContainer.append(newProduct)
+    })
+}
+
+function execQuery(query, sort){
+    fetch('/getProducts', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({find: query, sort: sort})
+    })
+    .then(products => products.text())
+    .then(products => {
+        renderProducts(JSON.parse(products).slice(0, 12))
+    })
+}

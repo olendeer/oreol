@@ -83,7 +83,7 @@
   right: -500px;
   z-index: -1;
   content: "";
-  height: 335px;
+  height: 100%;
   width: 500px;
   background-color: #f1f1f1;
 }

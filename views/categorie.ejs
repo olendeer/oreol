@@ -14,7 +14,7 @@
     <%- include('parts/header', {links: links})%>
     <section class="products">
         <div class="mobile-filter-bg"></div>
-        <div class="<%=(data.filter) ? 'filter' : 'no-filter'%>">
+        <div class="<%=(data.filter) ? 'filter' : 'no-filter'%>" categorie="<%=products[0].categorie%>">
             <div class="filter-title">Сортировка:</div>
             <div class="sort-of submenu-btn"><span>По популярности</span>
                 <img src="img/arrow.svg" alt="">
@@ -26,12 +26,12 @@
             <div class="active-filters">
             </div>
             <%for(let i = 0; i < data.filterData.length; i ++){%>
-                <div class="filter-block">
+                <div class="filter-block" filter="<%=data.filterData[i].filter%>">
                     <div class="filter-title"><%=data.filterData[i].name%></div>
                     <%for(let j = 0; j < data.filterData[i].fields.length; j++){%>
                         <div class="checkbox-item">
                             <div class="checkbox"></div>
-                            <div class="label"><%=data.filterData[i].fields[j]%></div>
+                            <span class="label"><%=data.filterData[i].fields[j]%></span>
                         </div>
                     <%}%>
                 </div>

@@ -1,6 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const mongoose = require('mongoose');
+const { request } = require('express');
 // const path = require('path');
 const app = express();
 
@@ -56,44 +57,54 @@ let filters = [
 	[
 		{
 			name : 'Класс:',
+			filter: 'classEvroruberoid',
 			fields: ['Субэконом', 'Эконом', 'Стандарт', 'Бизнес', 'Премиум']
 		},
 		{
 			name : 'Тип:',
+			filter: 'typeEvroruberoid',
 			fields : ['Гидроизоляционный', 'Кровельный']
 		},
 		{
 			name: 'Бренд:',
+			filter: 'brendEvroruberoid',
 			fields: ['Битумакс', 'Еврорубероид', 'Пластобит', 'Пластобит Мост', 'Пластобит Про', 'Пластобит Эласт']
 		},
 		{
 			name: 'Вес кг/м2:',
+			filter: 'weightEvroruberoid',
 			fields: ['1,5', '2,0', '2,5', '3,0', '3,5', '3,9', '4,0', '5,0', '5,4', '6,3', '6,5']
 		},
 		{
 			name: 'Основа:', 
+			filter: 'baseEvroruberoid',
 			fields: ['Полиэстер', 'Стеклохолст']
 		},
 		{
 			name: 'Длина руллона, м:', 
+			filter: 'widthEvroruberoid',
 			fields: ['8', '10', '15']
 		},
 		{
 			name: 'Маркировка:', 
+			filter: 'marksEvroruberoid',
 			fields: ['ЕКП', 'ЕПП', 'ХКП', 'ХПП']
 		}
 	],
 	[
 		{
 			name: 'Продукция:',
+			filter: 'typeMastika',
 			fields: ['Мастика', 'Праймер'] 
 		},
 		{
 			name: 'Сфера применения:',
+			filter: 'areaMastika',
 			fields: ['Антикоррозийная защита', 'Герметизация', 'Гидроизоляция', 'Подготовка поверхностей', 'Приклеивание', 'Устройство и ремонт кровель', 'Устройство кровель']
 		},
 		{
 			name: 'Тип растворителя:',
+			filter: 'solventMastika',
 			fields: ['Водная эмульсия', 'Органический растворитель']
 		}
 	]
@@ -158,6 +169,7 @@ app.get('/catalog/:categorie', async (request, response) => {
 	}
 	let links = LinkItem.find();
 	let charts = ChartsItem.findOne();
+	console.log()
 	let products = ProductItem.find({categorie: request.params.categorie}).sort({ $natural: -1 }).skip(data.numberPage * 12 - 12).limit(12)
 	Promise.all([links, charts, products]).then(items => {
 		response.render('categorie', {data: data, links : items[0], charts : items[1], products: items[2]});
@@ -613,4 +625,9 @@ app.get('/:categorie/:product', async (request, response) => {
 	Promise.all([links, charts, product, interesting]).then(items => {
 		response.render('product', {data: data, links : items[0], charts : items[1], product: items[2], interesting: items[3]});
 	});
+})
+
+app.post('/getProducts', jsonParser, async (request, response) => {
+	let products = await ProductItem.find(request.body.find).sort(request.body.sort)
+	response.json(products)
 })
