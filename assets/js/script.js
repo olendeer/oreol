@@ -108,7 +108,9 @@ function makeQuery(operation, element){
 function renderProducts(products){
     let productsContainer = document.querySelector('.filter-items');
     productsContainer.innerHTML = '';
-    document.querySelector('.filter-items-navigation').style.display = 'none';
+    if(document.querySelector('.filter-items-navigation')){
+        document.querySelector('.filter-items-navigation').style.display = 'none'
+    }
     products.forEach(product => {
         let newProduct = templateProduct.cloneNode(true);
         newProduct.querySelectorAll('.sale, .new').forEach(label => {
