@@ -129,11 +129,11 @@ function renderProducts(products){
             newProduct.querySelector('.wrap-photo').append(label)
         }
         newProduct.querySelector('.wrap-photo > img').setAttribute('src', product.img)
-        newProduct.querySelector('h3').textContent = product.name;
+        newProduct.querySelector('.product-name').textContent = product.name;
         newProduct.querySelector('.item-price').textContent = product.price;
         newProduct.querySelector('.item-count').textContent = product.typePrice;
         newProduct.querySelector('.rating-count').textContent = product.rating;
-        newProduct.querySelector('a').setAttribute('href', '/' + product.categorie + '/' + product._id)
+        newProduct.querySelector('.about-product').setAttribute('href', '/' + product.categorie + '/' + product._id)
         productsContainer.append(newProduct)
     })
 }
