@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/contacts.css">
@@ -28,9 +27,9 @@
                 <div class="contact-item">
                     <img src="img/call.svg" alt="">
                     <div class="contact-item-info">
-                        <span class="contact-info-text"><%=charts.phone1%></span>
-                        <span class="contact-info-text"><%=charts.phone2%></span>
-                        <span class="contact-info-text"><%=charts.phone3%></span>
+                        <a href="tel:<%=charts.phone1%>" class="contact-info-text"><%=charts.phone1%></a>
+                        <a href="tel:<%=charts.phone2%>" class="contact-info-text"><%=charts.phone2%></a>
+                        <a href="tel:<%=charts.phone3%>" class="contact-info-text"><%=charts.phone3%></a>
                     </div>
                 </div>
                 <div class="contact-item">

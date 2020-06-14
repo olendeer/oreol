@@ -109,6 +109,7 @@
   line-height: 1.4rem;
   color: #2B2E40;
   font-weight: 700;
+  text-decoration: none;
 }
 .content .content-body .content-body-item img {
   transform: translateX(-40px) translateY(40px);
