@@ -38,7 +38,7 @@ app.get('/', async (request, response) => {
 	let links = LinkItem.find();
 	let charts = ChartsItem.findOne();
 	let slides = SlideItem.find();
-	let interesting = ProductItem.find().limit(4)
+	let interesting = ProductItem.find({categorie: {$ne: null}}).limit(4)
 	Promise.all([links, charts, slides, interesting]).then(data => {
 		response.render('index', {links : data[0], charts : data[1], slides: data[2], interesting: data[3]});
 	})
