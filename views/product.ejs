@@ -83,15 +83,15 @@
         <div class="catalog-preview">
             <%for(let i = 0; i < interesting.length; i++){%>
                 <div class="preview-item">
-                    <div class="wrap-photo">
+                    <a class="wrap-photo" href="/<%=interesting[i].categorie%>/<%=interesting[i]._id%>">
                         <%if(interesting[i].label == 'Акция'){%>
                             <div class="sale">Акция</div>
                         <%}else if(interesting[i].label == 'Новинка'){%>
                             <div class="new">Новинка</div>
                         <%}%>
                         <img src="<%=interesting[i].img%>" alt="">
-                    </div>
-                    <h3><%=interesting[i].name%></h3>
+                    </a>
+                    <a href="/<%=interesting[i].categorie%>/<%=interesting[i]._id%>" class="product-name"><%=interesting[i].name%></a>
                     <div class="price-info">
                         <span class="item-price"><%=interesting[i].preice%></span>
                         <div class="item-count"><%=interesting[i].typePrice%></div>
@@ -113,7 +113,7 @@
                             </svg>
                         </div>
                     </div>
-                    <a href="/<%=interesting[i].categorie%>/<%=interesting[i]._id%>">
+                    <a href="/<%=interesting[i].categorie%>/<%=interesting[i]._id%>" class="about-product">
                         <span>Подробнее</span>
                         <svg width="22" height="5" viewBox="0 0 22 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 2.5H20" stroke="#1235C4" stroke-linejoin="round"/>
