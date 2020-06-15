@@ -86,6 +86,54 @@
             </div>
         </div>
     </section>
+    <section class="catalog">
+        <div class="catalog-header">
+            <span>Выбор шлакоблоков</span>
+        </div>
+        <div class="catalog-preview">
+            <%for(let i = 0; i < products.length; i++){%>
+                <div class="preview-item">
+                    <a class="wrap-photo" href="/<%=products[i].categorie%>/<%=products[i]._id%>">
+                        <%if(products[i].label == 'Акция'){%>
+                            <div class="sale">Акция</div>
+                        <%}else if(products[i].label == 'Новинка'){%>
+                            <div class="new">Новинка</div>
+                        <%}%>
+                        <img src="<%=products[i].img%>" alt="">
+                    </a>
+                    <a href="/<%=products[i].categorie%>/<%=products[i]._id%>" class="product-name"><%=products[i].name%></a>
+                    <div class="price-info">
+                        <span class="item-price"><%=products[i].preice%></span>
+                        <div class="item-count"><%=products[i].typePrice%></div>
+                    </div>
+                    <div class="item-rating">
+                        <span class="rating-count"><%=products[i].rating%></span>
+                        <div class="star-rating">
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                            </svg>
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                            </svg>
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                            </svg>
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 0L9.79611 5.52786H15.6085L10.9062 8.94427L12.7023 14.4721L8 11.0557L3.29772 14.4721L5.09383 8.94427L0.391548 5.52786H6.20389L8 0Z" fill="#F1F1F1"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <a href="/<%=products[i].categorie%>/<%=products[i]._id%>" class="about-product">
+                        <span>Подробнее</span>
+                        <svg width="22" height="5" viewBox="0 0 22 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 2.5H20" stroke="#1235C4" stroke-linejoin="round"/>
+                            <path d="M22 2.5L18.25 4.66506L18.25 0.334936L22 2.5Z" fill="#1235C4"/>
+                        </svg>
+                    </a>
+                </div>
+            <%}%>
+        </div>
+    </section>
     <section class="description">
         <div class="wrap-description">
             <div class="description-header"><%=data.page%></div>
