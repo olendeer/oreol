@@ -106,10 +106,13 @@ function makeQuery(operation, element){
     execQuery(query, sort)
 }
 function renderProducts(products){
+    console.log(products)
     let productsContainer = document.querySelector('.filter-items');
     productsContainer.innerHTML = '';
     if(products.length <= 12){
-        document.querySelector('.filter-items-navigation').style.display = 'none'
+        if(document.querySelector('.filter-items-navigation')){
+            document.querySelector('.filter-items-navigation').style.display = 'none'
+        }
     }
     else{
         products = products.slice(0, 12)

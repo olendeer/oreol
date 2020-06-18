@@ -279,6 +279,10 @@
   font-size: 0.6rem;
   line-height: 0.9rem;
 }
+.catalog .catalog-preview .preview-item .wrap-photo img {
+  max-width: 280px;
+  max-height: 280px;
+}
 .catalog .catalog-preview .preview-item .product-name {
   font-size: 0.7rem;
   line-height: 1.05rem;

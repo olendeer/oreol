@@ -293,6 +293,10 @@
   font-size: 0.6rem;
   line-height: 0.9rem;
 }
+.catalog .catalog-preview .preview-item .wrap-photo img {
+  max-width: 280px;
+  max-height: 280px;
+}
 .catalog .catalog-preview .preview-item .product-name {
   font-size: 0.7rem;
   line-height: 1.05rem;
@@ -468,6 +472,78 @@
   }
   .content .content-body .calculate-btn {
     margin-top: 10px;
+  }
+
+  .catalog {
+    width: 100%;
+    padding: 0px 8px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  .catalog .catalog-header {
+    margin-bottom: 32px;
+  }
+  .catalog .catalog-preview {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .catalog .catalog-preview .preview-item {
+    width: 49.2%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .catalog .catalog-preview .preview-item .wrap-photo {
+    height: 150px;
+    margin-bottom: 10px;
+  }
+  .catalog .catalog-preview .preview-item .wrap-photo .sale {
+    width: 44px;
+    height: 14px;
+    font-size: 0.4rem;
+    line-height: 0.6rem;
+    top: -7px;
+    right: 8px;
+  }
+  .catalog .catalog-preview .preview-item .wrap-photo .new {
+    width: 44px;
+    height: 14px;
+    font-size: 0.4rem;
+    line-height: 0.6rem;
+    top: -7px;
+    left: 8px;
+  }
+  .catalog .catalog-preview .preview-item .wrap-photo img {
+    height: 105px;
+  }
+  .catalog .catalog-preview .preview-item .product-name {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+  }
+  .catalog .catalog-preview .preview-item .price-info {
+    margin-bottom: 3px;
+  }
+  .catalog .catalog-preview .preview-item .price-info .item-price {
+    font-size: 0.6rem;
+    line-height: 0.9rem;
+    margin-right: 5px;
+  }
+  .catalog .catalog-preview .preview-item .price-info .item-count {
+    font-size: 0.5rem;
+    line-height: 0.9rem;
+  }
+  .catalog .catalog-preview .preview-item .item-rating {
+    margin-bottom: 0px;
+  }
+  .catalog .catalog-preview .preview-item .item-rating s .rating-count {
+    font-size: 0.5rem;
+    line-height: 0.9rem;
+  }
+  .catalog .catalog-preview .preview-item .item-rating .star-rating svg {
+    width: 12px;
+    height: 12px;
+  }
+  .catalog .catalog-preview .preview-item .about-product {
+    display: none;
   }
 
   .description {
